@@ -1,0 +1,114 @@
+name: Auto Update from Template
+
+on:
+  schedule:
+    # Запуск каждый понедельник в 9:00 UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+    # Ручной запуск через GitHub Actions UI
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Add upstream remote
+        run: |
+          # Проверка наличия upstream
+          if ! git remote | grep -q "^upstream$"; then
+            git remote add upstream ${{ secrets.UPSTREAM_TEMPLATE_URL }}
+          else
+            git remote set-url upstream ${{ secrets.UPSTREAM_TEMPLATE_URL }}
+          fi
+
+      - name: Fetch upstream changes
+        run: |
+          git fetch upstream
+
+      - name: Check for updates
+        id: check
+        run: |
+          CURRENT=$(git rev-parse HEAD)
+          UPSTREAM=$(git rev-parse upstream/main)
+          
+          if [ "$CURRENT" != "$UPSTREAM" ]; then
+            echo "has_updates=true" >> $GITHUB_OUTPUT
+            echo "current=$CURRENT" >> $GITHUB_OUTPUT
+            echo "upstream=$UPSTREAM" >> $GITHUB_OUTPUT
+          else
+            echo "has_updates=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Merge upstream changes
+        if: steps.check.outputs.has_updates == 'true'
+        run: |
+          git checkout main || git checkout -b main
+          git merge upstream/main --no-edit --no-ff -m "Auto-update from template repository"
+          
+          # Если есть конфликты, создаем PR вместо прямого merge
+          if [ $? -ne 0 ]; then
+            echo "CONFLICTS=true" >> $GITHUB_ENV
+            git merge --abort
+          fi
+
+      - name: Create Pull Request for conflicts
+        if: env.CONFLICTS == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: auto-update-from-template
+          title: "Auto-update from template (requires manual merge)"
+          body: |
+            Автоматическое обновление из шаблона обнаружило конфликты.
+            
+            Пожалуйста, разрешите конфликты вручную и выполните merge.
+            
+            - Current: ${{ steps.check.outputs.current }}
+            - Upstream: ${{ steps.check.outputs.upstream }}
+          commit-message: "Auto-update from template (conflicts detected)"
+          labels: |
+            automated
+            update
+            needs-review
+
+      - name: Push changes
+        if: steps.check.outputs.has_updates == 'true' && env.CONFLICTS != 'true'
+        run: |
+          git push origin main
+
+      - name: Create summary
+        if: always()
+        run: |
+          if [ "${{ steps.check.outputs.has_updates }}" == "true" ]; then
+            echo "✅ Обновления из шаблона успешно применены"
+          elif [ "${{ steps.check.outputs.has_updates }}" == "false" ]; then
+            echo "ℹ️  Нет новых обновлений из шаблона"
+          else
+            echo "⚠️  Обнаружены конфликты. Создан Pull Request для ручного разрешения"
+          fi
+
+
+
+
+
+
+
+
+
+
+
+

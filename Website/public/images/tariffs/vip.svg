@@ -1,0 +1,87 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradient Background -->
+  <defs>
+    <linearGradient id="vipGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7e22ce;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#581c87;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="vipIconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="goldVIP" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glowGradient" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#fbbf24;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Glow Background -->
+  <circle cx="200" cy="200" r="180" fill="url(#glowGradient)"/>
+  <circle cx="200" cy="200" r="170" fill="url(#vipGradient)" opacity="0.2"/>
+  
+  <!-- Decorative Elements -->
+  <circle cx="100" cy="100" r="40" fill="url(#goldVIP)" opacity="0.25"/>
+  <circle cx="300" cy="300" r="50" fill="url(#vipIconGradient)" opacity="0.2"/>
+  
+  <!-- Crown Icon -->
+  <g transform="translate(140, 110)">
+    <!-- Crown Base -->
+    <path d="M60 80 L20 80 L10 60 L30 50 L50 50 L70 60 L60 80 Z" fill="url(#goldVIP)"/>
+    
+    <!-- Crown Peaks -->
+    <path d="M40 50 L20 30 L40 35 Z" fill="url(#goldVIP)"/>
+    <path d="M50 50 L40 25 L50 30 Z" fill="url(#goldVIP)"/>
+    <path d="M60 50 L50 30 L60 35 Z" fill="url(#goldVIP)"/>
+    
+    <!-- Crown Details -->
+    <circle cx="40" cy="45" r="3" fill="#7e22ce"/>
+    <circle cx="50" cy="40" r="3" fill="#7e22ce"/>
+    <circle cx="60" cy="45" r="3" fill="#7e22ce"/>
+    
+    <!-- Star on Crown -->
+    <circle cx="50" cy="25" r="12" fill="url(#goldVIP)"/>
+    <path d="M50 15 L52 22 L59 22 L53 27 L55 34 L50 29 L45 34 L47 27 L41 22 L48 22 Z" fill="white"/>
+  </g>
+  
+  <!-- Multiple Stars -->
+  <g opacity="0.9">
+    <!-- Star 1 -->
+    <circle cx="90" cy="280" r="8" fill="url(#goldVIP)"/>
+    <path d="M90 273 L92 278 L97 278 L93 281 L94.5 286 L90 283 L85.5 286 L87 281 L83 278 L88 278 Z" fill="white"/>
+    
+    <!-- Star 2 -->
+    <circle cx="310" cy="120" r="10" fill="url(#goldVIP)"/>
+    <path d="M310 110 L312.5 117 L320 117 L314 121.5 L316 128 L310 124 L304 128 L306 121.5 L300 117 L307.5 117 Z" fill="white"/>
+    
+    <!-- Star 3 -->
+    <circle cx="320" cy="280" r="8" fill="url(#goldVIP)"/>
+    <path d="M320 273 L322 278 L327 278 L323 281 L324.5 286 L320 283 L315.5 286 L317 281 L313 278 L318 278 Z" fill="white"/>
+  </g>
+  
+  <!-- Luxury Lines -->
+  <g opacity="0.3" stroke="url(#goldVIP)" stroke-width="2">
+    <path d="M80 200 Q100 180, 120 200" fill="none"/>
+    <path d="M280 200 Q300 220, 320 200" fill="none"/>
+  </g>
+  
+  <!-- Strong Glow Effect -->
+  <circle cx="200" cy="200" r="160" fill="none" stroke="url(#goldVIP)" stroke-width="2" opacity="0.3"/>
+  <circle cx="200" cy="200" r="150" fill="none" stroke="url(#vipIconGradient)" stroke-width="1" opacity="0.4"/>
+</svg>
+
+
+
+
+
+
+
+
+
+
+
+
