@@ -201,3 +201,10 @@ Write-Info "Для загрузки на GitHub: git push"
 
 
 
+
+
+
+
+
+
+
