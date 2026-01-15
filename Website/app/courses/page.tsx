@@ -41,6 +41,7 @@ export default function CoursesPage() {
   return (
     <>
       <Header />
+      <Breadcrumbs />
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
         <section className="py-16 md:py-20 border-b border-border">

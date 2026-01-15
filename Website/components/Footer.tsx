@@ -65,8 +65,31 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="border-t border-border pt-6 text-center animate-fade-in animation-delay-400">
-          <p className="text-xs text-muted font-light">&copy; {new Date().getFullYear()} Go Offer. Все права защищены.</p>
+        <div className="border-t border-border pt-6 animate-fade-in animation-delay-400">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-xs text-muted font-light">&copy; {new Date().getFullYear()} Go Offer. Все права защищены.</p>
+            <div className="flex flex-wrap gap-4 justify-center text-xs">
+              <a href="/privacy" className="text-muted hover:text-purple-600 transition-colors font-light uppercase tracking-wide">
+                Privacy Policy
+              </a>
+              <span className="text-muted">•</span>
+              <a href="/cookie" className="text-muted hover:text-blue-600 transition-colors font-light uppercase tracking-wide">
+                Cookie Policy
+              </a>
+              <span className="text-muted">•</span>
+              <a href="/termsconditions" className="text-muted hover:text-pink-600 transition-colors font-light uppercase tracking-wide">
+                Terms & Conditions
+              </a>
+              <span className="text-muted">•</span>
+              <a href="/contact" className="text-muted hover:text-cyan-600 transition-colors font-light uppercase tracking-wide">
+                Contact Information
+              </a>
+              <span className="text-muted">•</span>
+              <a href="/companydetails" className="text-muted hover:text-violet-600 transition-colors font-light uppercase tracking-wide">
+                Company Details
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

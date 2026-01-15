@@ -7,31 +7,37 @@ export default function Services() {
       title: 'Career Strategy',
       description: 'Разработка стратегии карьеры с учетом ваших целей и возможностей',
       color: 'purple',
+      icon: '🎯',
     },
     {
       title: 'Resume Building',
       description: 'Создание резюме, которое проходит ATS-фильтры и привлекает внимание топовых компаний',
       color: 'blue',
+      icon: '📄',
     },
     {
       title: 'LinkedIn Optimization',
       description: 'Оптимизация профиля LinkedIn для повышения видимости и открытия новых возможностей',
       color: 'pink',
+      icon: '💼',
     },
     {
       title: 'Job Search Automation',
       description: 'Автоматизация поиска работы с помощью AI-инструментов. Экономия 20+ часов в неделю',
       color: 'cyan',
+      icon: '🤖',
     },
     {
       title: 'Mock Interviews',
       description: 'Практика интервью с экспертами для уверенного прохождения собеседований',
       color: 'violet',
+      icon: '🎤',
     },
     {
       title: 'Offer Negotiation',
       description: 'Научитесь вести переговоры как профессионал и увеличить предложение',
       color: 'purple',
+      icon: '💵',
     },
   ]
 
@@ -66,11 +72,18 @@ export default function Services() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 max-w-6xl mx-auto mb-12 md:mb-16">
           {services.map((service, index) => (
             <ScrollReveal key={index} animation="slide-up" delay={index * 100}>
-              <div className={`border-b border-border pb-6 md:pb-8 transition-all duration-500 ${colorClasses[service.color as keyof typeof colorClasses]}`}>
-                <h3 className="text-lg md:text-xl font-light mb-3 md:mb-4 tracking-wide uppercase">
-                  {service.title}
-                </h3>
-                <p className="text-sm text-muted font-light leading-relaxed">{service.description}</p>
+              <div className={`border-b border-border pb-6 md:pb-8 transition-all duration-500 ${colorClasses[service.color as keyof typeof colorClasses]} group`}>
+                <div className="flex items-start gap-3 md:gap-4">
+                  <div className="text-3xl md:text-4xl flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    {service.icon}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg md:text-xl font-light mb-3 md:mb-4 tracking-wide uppercase">
+                      {service.title}
+                    </h3>
+                    <p className="text-sm text-muted font-light leading-relaxed">{service.description}</p>
+                  </div>
+                </div>
               </div>
             </ScrollReveal>
           ))}

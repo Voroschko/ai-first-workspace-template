@@ -1,9 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Breadcrumbs from '@/components/Breadcrumbs'
 import ScrollReveal from '@/components/ScrollReveal'
+import { SkeletonCaseCard } from '@/components/Skeleton'
 
 interface Case {
   id: string
@@ -880,6 +882,15 @@ const categories = [
 
 export default function CasesPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('Все')
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    // Симуляция загрузки данных
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 800)
+    return () => clearTimeout(timer)
+  }, [])
 
   const filteredCases = selectedCategory === 'Все'
     ? cases
@@ -930,8 +941,15 @@ export default function CasesPage() {
         {/* Cases Grid */}
         <section className="py-16 md:py-20">
           <div className="container mx-auto px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {filteredCases.map((caseItem, index) => (
+            {isLoading ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                {Array.from({ length: 6 }).map((_, index) => (
+                  <SkeletonCaseCard key={index} />
+                ))}
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                {filteredCases.map((caseItem, index) => (
                 <ScrollReveal key={caseItem.id} animation="slide-up" delay={index * 50}>
                   <div className="bg-background/50 rounded-2xl p-6 md:p-8 border border-border/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg backdrop-blur-sm h-full flex flex-col">
                     {/* Header */}
@@ -1043,7 +1061,9 @@ export default function CasesPage() {
                   </div>
                 </ScrollReveal>
               ))}
-            </div>
+              </div>
+            )}
+          </div>
 
             {/* CTA Section */}
             {filteredCases.length === 0 && (

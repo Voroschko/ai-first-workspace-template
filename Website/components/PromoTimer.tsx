@@ -58,15 +58,15 @@ export default function PromoTimer() {
       
       {/* Бейдж с количеством мест в правом верхнем углу */}
       <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-20">
-        <div className="text-[10px] sm:text-xs text-red-300 font-medium px-2 sm:px-2.5 py-0.5 sm:py-1 bg-red-500/15 border border-red-500/30 rounded-md backdrop-blur-sm drop-shadow-[0_2px_8px_rgba(239,68,68,0.3)]">
-          Осталось мест: <span className="font-semibold text-red-200">{spotsLeft}</span>
+        <div className="text-[10px] sm:text-xs text-red-600 font-medium px-2 sm:px-2.5 py-0.5 sm:py-1 bg-red-500/10 border border-red-500/30 rounded-md backdrop-blur-sm">
+          Осталось мест: <span className="font-semibold text-red-600">{spotsLeft}</span>
         </div>
       </div>
 
       <div className="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 md:gap-12 relative z-10">
         <div className="text-center md:text-left flex-1">
           <div className="mb-3 sm:mb-4">
-            <span className="text-[10px] sm:text-xs text-white font-light uppercase tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.8),0_0_12px_rgba(168,85,247,0.8)]">
+            <span className="text-[10px] sm:text-xs text-purple-600 font-light uppercase tracking-wide">
               Ограниченное предложение
             </span>
           </div>
@@ -81,34 +81,34 @@ export default function PromoTimer() {
 
         <div className="flex-shrink-0 w-full md:w-auto">
           <div className="text-center mb-4 sm:mb-6">
-            <p className="text-[10px] sm:text-xs text-white font-light uppercase tracking-wide mb-4 sm:mb-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8),0_0_12px_rgba(168,85,247,0.8)]">
+            <p className="text-[10px] sm:text-xs text-muted font-light uppercase tracking-wide mb-4 sm:mb-6">
               До конца акции осталось:
             </p>
           </div>
           <div className="flex gap-2 sm:gap-3 md:gap-4 justify-center">
-            <div className="border border-purple-500/30 p-2 sm:p-3 md:p-4 min-w-[50px] sm:min-w-[55px] md:min-w-[60px] text-center group/item hover:border-purple-400/50 transition-all duration-300">
-              <div className="text-2xl sm:text-2xl md:text-3xl font-light text-white mb-1 sm:mb-2 tracking-tight group-hover/item:scale-110 transition-transform drop-shadow-[0_2px_4px_rgba(0,0,0,0.8),0_0_16px_rgba(168,85,247,0.9)]">
+            <div className="border border-purple-500/30 bg-purple-500/5 p-2 sm:p-3 md:p-4 min-w-[50px] sm:min-w-[55px] md:min-w-[60px] text-center group/item hover:border-purple-400/50 hover:bg-purple-500/10 transition-all duration-300 rounded-lg">
+              <div className="text-2xl sm:text-2xl md:text-3xl font-light text-purple-600 mb-1 sm:mb-2 tracking-tight group-hover/item:scale-110 transition-transform">
                 {String(timeLeft.days).padStart(2, '0')}
               </div>
-              <div className="text-[10px] sm:text-xs text-white/90 uppercase font-light tracking-wide drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">дней</div>
+              <div className="text-[10px] sm:text-xs text-muted uppercase font-light tracking-wide">дней</div>
             </div>
-            <div className="border border-blue-500/30 p-2 sm:p-3 md:p-4 min-w-[50px] sm:min-w-[55px] md:min-w-[60px] text-center group/item hover:border-blue-400/50 transition-all duration-300">
-              <div className="text-2xl sm:text-2xl md:text-3xl font-light text-white mb-1 sm:mb-2 tracking-tight group-hover/item:scale-110 transition-transform drop-shadow-[0_2px_4px_rgba(0,0,0,0.8),0_0_16px_rgba(59,130,246,0.9)]">
+            <div className="border border-blue-500/30 bg-blue-500/5 p-2 sm:p-3 md:p-4 min-w-[50px] sm:min-w-[55px] md:min-w-[60px] text-center group/item hover:border-blue-400/50 hover:bg-blue-500/10 transition-all duration-300 rounded-lg">
+              <div className="text-2xl sm:text-2xl md:text-3xl font-light text-blue-600 mb-1 sm:mb-2 tracking-tight group-hover/item:scale-110 transition-transform">
                 {String(timeLeft.hours).padStart(2, '0')}
               </div>
-              <div className="text-[10px] sm:text-xs text-white/90 uppercase font-light tracking-wide drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">часов</div>
+              <div className="text-[10px] sm:text-xs text-muted uppercase font-light tracking-wide">часов</div>
             </div>
-            <div className="border border-pink-500/30 p-2 sm:p-3 md:p-4 min-w-[50px] sm:min-w-[55px] md:min-w-[60px] text-center group/item hover:border-pink-400/50 transition-all duration-300">
-              <div className="text-2xl sm:text-2xl md:text-3xl font-light text-white mb-1 sm:mb-2 tracking-tight group-hover/item:scale-110 transition-transform drop-shadow-[0_2px_4px_rgba(0,0,0,0.8),0_0_16px_rgba(236,72,153,0.9)]">
+            <div className="border border-pink-500/30 bg-pink-500/5 p-2 sm:p-3 md:p-4 min-w-[50px] sm:min-w-[55px] md:min-w-[60px] text-center group/item hover:border-pink-400/50 hover:bg-pink-500/10 transition-all duration-300 rounded-lg">
+              <div className="text-2xl sm:text-2xl md:text-3xl font-light text-pink-600 mb-1 sm:mb-2 tracking-tight group-hover/item:scale-110 transition-transform">
                 {String(timeLeft.minutes).padStart(2, '0')}
               </div>
-              <div className="text-[10px] sm:text-xs text-white/90 uppercase font-light tracking-wide drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">минут</div>
+              <div className="text-[10px] sm:text-xs text-muted uppercase font-light tracking-wide">минут</div>
             </div>
-            <div className="border border-cyan-500/30 p-2 sm:p-3 md:p-4 min-w-[50px] sm:min-w-[55px] md:min-w-[60px] text-center group/item hover:border-cyan-400/50 transition-all duration-300">
-              <div className="text-2xl sm:text-2xl md:text-3xl font-light text-white mb-1 sm:mb-2 tracking-tight group-hover/item:scale-110 transition-transform drop-shadow-[0_2px_4px_rgba(0,0,0,0.8),0_0_16px_rgba(6,182,212,0.9)]">
+            <div className="border border-cyan-500/30 bg-cyan-500/5 p-2 sm:p-3 md:p-4 min-w-[50px] sm:min-w-[55px] md:min-w-[60px] text-center group/item hover:border-cyan-400/50 hover:bg-cyan-500/10 transition-all duration-300 rounded-lg">
+              <div className="text-2xl sm:text-2xl md:text-3xl font-light text-cyan-600 mb-1 sm:mb-2 tracking-tight group-hover/item:scale-110 transition-transform">
                 {String(timeLeft.seconds).padStart(2, '0')}
               </div>
-              <div className="text-[10px] sm:text-xs text-white/90 uppercase font-light tracking-wide drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">секунд</div>
+              <div className="text-[10px] sm:text-xs text-muted uppercase font-light tracking-wide">секунд</div>
             </div>
           </div>
         </div>

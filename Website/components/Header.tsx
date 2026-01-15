@@ -1,9 +1,26 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
+  
+  // Определяем активную страницу
+  const isActive = (path: string) => {
+    if (path === '/') {
+      return pathname === '/'
+    }
+    return pathname?.startsWith(path)
+  }
+  
+  // Для якорных ссылок проверяем, находимся ли мы на главной странице
+  const isAnchorActive = (anchor: string) => {
+    if (pathname !== '/') return false
+    // Можно добавить логику для определения видимой секции при скролле
+    return false
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur-md">
@@ -21,35 +38,63 @@ export default function Header() {
           <nav className="hidden md:flex items-center gap-4 lg:gap-6">
             <a 
               href="/services" 
-              className="text-xs font-light text-muted hover:text-accent transition-all duration-300 uppercase tracking-wide relative group py-2"
+              className={`text-xs font-light transition-all duration-300 uppercase tracking-wide relative group py-2 ${
+                isActive('/services')
+                  ? 'text-accent'
+                  : 'text-muted hover:text-accent'
+              }`}
             >
               Услуги
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-accent transition-all duration-300 ${
+                isActive('/services') ? 'w-full' : 'w-0 group-hover:w-full'
+              }`}></span>
             </a>
             <a 
               href="#pricing" 
-              className="text-xs font-light text-muted hover:text-blue-600 transition-all duration-300 uppercase tracking-wide relative group py-2"
+              className={`text-xs font-light transition-all duration-300 uppercase tracking-wide relative group py-2 ${
+                isAnchorActive('#pricing')
+                  ? 'text-blue-600'
+                  : 'text-muted hover:text-blue-600'
+              }`}
             >
               Тарифы
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-blue-600 transition-all duration-300 ${
+                isAnchorActive('#pricing') ? 'w-full' : 'w-0 group-hover:w-full'
+              }`}></span>
             </a>
             <a 
               href="#about" 
-              className="text-xs font-light text-muted hover:text-pink-600 transition-all duration-300 uppercase tracking-wide relative group py-2"
+              className={`text-xs font-light transition-all duration-300 uppercase tracking-wide relative group py-2 ${
+                isAnchorActive('#about')
+                  ? 'text-pink-600'
+                  : 'text-muted hover:text-pink-600'
+              }`}
             >
               О нас
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-600 group-hover:w-full transition-all duration-300"></span>
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-pink-600 transition-all duration-300 ${
+                isAnchorActive('#about') ? 'w-full' : 'w-0 group-hover:w-full'
+              }`}></span>
             </a>
             <a 
               href="/cases" 
-              className="text-xs font-light text-muted hover:text-cyan-600 transition-all duration-300 uppercase tracking-wide relative group py-2"
+              className={`text-xs font-light transition-all duration-300 uppercase tracking-wide relative group py-2 ${
+                isActive('/cases')
+                  ? 'text-cyan-600'
+                  : 'text-muted hover:text-cyan-600'
+              }`}
             >
               Кейсы
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-600 group-hover:w-full transition-all duration-300"></span>
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-cyan-600 transition-all duration-300 ${
+                isActive('/cases') ? 'w-full' : 'w-0 group-hover:w-full'
+              }`}></span>
             </a>
             <a 
               href="/courses" 
-              className="text-xs font-light text-foreground hover:text-purple-500 transition-all duration-300 uppercase tracking-wide border border-border/50 hover:border-purple-500/50 hover:bg-purple-500/5 px-3 py-1.5 rounded-md backdrop-blur-sm"
+              className={`text-xs font-light transition-all duration-300 uppercase tracking-wide border px-3 py-1.5 rounded-md backdrop-blur-sm ${
+                isActive('/courses')
+                  ? 'text-foreground border-purple-500/50 bg-purple-500/5'
+                  : 'text-foreground border-border/50 hover:border-purple-500/50 hover:bg-purple-500/5 hover:text-purple-500'
+              }`}
             >
               Бесплатные курсы
             </a>
@@ -94,35 +139,55 @@ export default function Header() {
             <div className="flex flex-col gap-3">
               <a
                 href="/services"
-                className="text-xs font-light text-muted hover:text-accent transition-all duration-300 uppercase tracking-wide py-2 px-2 rounded-md hover:bg-accent/5"
+                className={`text-xs font-light transition-all duration-300 uppercase tracking-wide py-2 px-2 rounded-md ${
+                  isActive('/services')
+                    ? 'text-accent bg-accent/5'
+                    : 'text-muted hover:text-accent hover:bg-accent/5'
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Услуги
               </a>
               <a
                 href="#pricing"
-                className="text-xs font-light text-muted hover:text-blue-600 transition-all duration-300 uppercase tracking-wide py-2 px-2 rounded-md hover:bg-blue-600/5"
+                className={`text-xs font-light transition-all duration-300 uppercase tracking-wide py-2 px-2 rounded-md ${
+                  isAnchorActive('#pricing')
+                    ? 'text-blue-600 bg-blue-600/5'
+                    : 'text-muted hover:text-blue-600 hover:bg-blue-600/5'
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Тарифы
               </a>
               <a
                 href="#about"
-                className="text-xs font-light text-muted hover:text-pink-600 transition-all duration-300 uppercase tracking-wide py-2 px-2 rounded-md hover:bg-pink-600/5"
+                className={`text-xs font-light transition-all duration-300 uppercase tracking-wide py-2 px-2 rounded-md ${
+                  isAnchorActive('#about')
+                    ? 'text-pink-600 bg-pink-600/5'
+                    : 'text-muted hover:text-pink-600 hover:bg-pink-600/5'
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 О нас
               </a>
               <a
                 href="/cases"
-                className="text-xs font-light text-muted hover:text-cyan-600 transition-all duration-300 uppercase tracking-wide py-2 px-2 rounded-md hover:bg-cyan-600/5"
+                className={`text-xs font-light transition-all duration-300 uppercase tracking-wide py-2 px-2 rounded-md ${
+                  isActive('/cases')
+                    ? 'text-cyan-600 bg-cyan-600/5'
+                    : 'text-muted hover:text-cyan-600 hover:bg-cyan-600/5'
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Кейсы
               </a>
               <a
                 href="/courses"
-                className="text-xs font-light text-foreground hover:text-purple-500 transition-all duration-300 uppercase tracking-wide border border-border/50 hover:border-purple-500/50 hover:bg-purple-500/5 px-3 py-2 rounded-md backdrop-blur-sm text-center"
+                className={`text-xs font-light transition-all duration-300 uppercase tracking-wide border px-3 py-2 rounded-md backdrop-blur-sm text-center ${
+                  isActive('/courses')
+                    ? 'text-foreground border-purple-500/50 bg-purple-500/5'
+                    : 'text-foreground border-border/50 hover:border-purple-500/50 hover:bg-purple-500/5 hover:text-purple-500'
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Бесплатные курсы

@@ -2,6 +2,7 @@
 
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Breadcrumbs from '@/components/Breadcrumbs'
 import ServiceCard from '@/components/ServiceCard'
 import AnimatedStars from '@/components/AnimatedStars'
 import StructuredData from '@/components/StructuredData'
@@ -213,6 +214,7 @@ export default function ServicesPage() {
         <AnimatedStars />
         <div className="relative z-10">
           <Header />
+          <Breadcrumbs />
 
       {/* Main Services - Expandable Cards */}
       <section className="py-10 border-t border-border relative overflow-hidden">

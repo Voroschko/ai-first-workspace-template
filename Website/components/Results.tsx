@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import ScrollReveal from './ScrollReveal'
+import AnimatedCounter from './AnimatedCounter'
 
 function DetailedStatsCarousel() {
   const stats = [
@@ -115,7 +116,30 @@ function DetailedStatsCarousel() {
               >
                 <div className={`border border-border/30 p-5 md:p-6 rounded-lg backdrop-blur-md bg-background/20 hover:${colors.border} transition-all duration-300 group h-full relative z-10`}>
                   <div className={`text-2xl md:text-3xl font-light ${colors.text} mb-2 md:mb-3 tracking-tight group-hover:scale-110 transition-transform`}>
-                    {stat.number}
+                    {(() => {
+                      // Парсим число из строки для анимации
+                      const numMatch = stat.number.match(/(\d+(?:\.\d+)?)/)
+                      if (numMatch) {
+                        const num = parseFloat(numMatch[1])
+                        const prefix = stat.number.startsWith('От') ? 'От ' : stat.number.startsWith('В') ? 'В ' : stat.number.startsWith('+') ? '+' : ''
+                        const suffix = stat.number.includes('%') ? '%' : stat.number.includes('x') ? 'x' : stat.number.includes('–') ? stat.number.split(/\d/).pop() : ''
+                        
+                        if (stat.number.includes('–')) {
+                          // Для диапазонов типа "2 000–12 000"
+                          return stat.number
+                        }
+                        
+                        return (
+                          <AnimatedCounter
+                            end={num}
+                            prefix={prefix}
+                            suffix={suffix}
+                            duration={2000}
+                          />
+                        )
+                      }
+                      return stat.number
+                    })()}
                   </div>
                   <p className="text-xs md:text-sm text-foreground font-light mb-2 uppercase tracking-wide">
                     {stat.title}
@@ -152,34 +176,47 @@ function DetailedStatsCarousel() {
 export default function Results() {
   const results = [
     {
-      number: '1100+',
+      number: 1100,
+      suffix: '+',
       label: 'Клиентов по всему миру',
       color: 'purple',
+      isAnimated: true,
     },
     {
       number: '5-15x',
       label: 'Больше релевантных откликов',
       color: 'blue',
+      isAnimated: false,
     },
     {
-      number: '5x',
+      number: 5,
+      suffix: 'x',
       label: 'Больше приглашений на интервью',
       color: 'pink',
+      isAnimated: true,
     },
     {
-      number: '94%',
+      number: 94,
+      suffix: '%',
       label: 'Находят работу к 6-му месяцу',
       color: 'cyan',
+      isAnimated: true,
     },
     {
-      number: '68%',
+      number: 68,
+      suffix: '%',
       label: 'Находят работу за 3 месяца',
       color: 'cyan',
+      isAnimated: true,
     },
     {
-      number: '~28.4%',
+      number: 28.4,
+      prefix: '~',
+      suffix: '%',
       label: 'Оффер выше среднего по рынку',
       color: 'violet',
+      isAnimated: true,
+      decimals: 1,
     },
   ]
 

@@ -1,11 +1,15 @@
 'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
 import PromoTimer from './PromoTimer'
 import ScrollReveal from './ScrollReveal'
 import BenefitCalculator from './BenefitCalculator'
+import Tooltip from './Tooltip'
 
 export default function Pricing() {
+  const [viewMode, setViewMode] = useState<'cards' | 'table'>('cards')
+  
   const plans = [
     {
       name: 'Take All',
@@ -174,16 +178,34 @@ export default function Pricing() {
                     Что входит:
                   </h4>
                   <ul className="space-y-2 md:space-y-3">
-                    {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start group/item">
-                        <span className={`mr-2 text-xs mt-1 flex-shrink-0 ${plan.popular ? 'text-purple-400' : 'text-blue-400'}`}>
-                          ✓
-                        </span>
-                        <span className="text-xs text-muted font-light leading-relaxed group-hover/item:text-foreground transition-colors">
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
+                    {plan.features.map((feature, featureIndex) => {
+                      // Определяем tooltip текст на основе feature
+                      const getTooltipText = (feat: string): string => {
+                        if (feat.includes('Hub')) return 'Платформа для автоматизации поиска работы и отслеживания прогресса'
+                        if (feat.includes('Check-ups')) return 'Регулярные встречи с коучем для корректировки стратегии'
+                        if (feat.includes('Follow Up')) return 'Автоматическая переписка с рекрутерами и работодателями'
+                        if (feat.includes('Outreach')) return 'Массовая рассылка сообщений рекрутерам в LinkedIn'
+                        if (feat.includes('Strategic session')) return 'Персональная стратегическая сессия с ментором'
+                        if (feat.includes('Resume') || feat.includes('Summary')) return 'Профессиональное резюме, оптимизированное под ATS'
+                        if (feat.includes('LinkedIn')) return 'Оптимизация профиля LinkedIn для максимальной видимости'
+                        if (feat.includes('Mock')) return 'Практические интервью с экспертами для подготовки'
+                        if (feat.includes('Assist')) return 'Поддержка ассистентов для масштабирования подач'
+                        return 'Включено в тариф'
+                      }
+                      
+                      return (
+                        <li key={featureIndex} className="flex items-start group/item">
+                          <span className={`mr-2 text-xs mt-1 flex-shrink-0 ${plan.popular ? 'text-purple-400' : 'text-blue-400'}`}>
+                            ✓
+                          </span>
+                          <Tooltip content={getTooltipText(feature)} position="right">
+                            <span className="text-xs text-muted font-light leading-relaxed group-hover/item:text-foreground transition-colors cursor-help border-b border-dotted border-muted/30 hover:border-foreground/50">
+                              {feature}
+                            </span>
+                          </Tooltip>
+                        </li>
+                      )
+                    })}
                   </ul>
                 </div>
 
@@ -218,6 +240,7 @@ export default function Pricing() {
             </ScrollReveal>
           ))}
         </div>
+        )}
 
         {/* Интерактивный калькулятор выгоды */}
         <div className="mb-8 md:mb-10">
