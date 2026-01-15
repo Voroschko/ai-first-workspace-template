@@ -71,11 +71,11 @@ export default function Pricing() {
   ]
 
   return (
-    <section id="pricing" className="py-10 md:py-12 border-t border-border relative">
+    <section id="pricing" className="py-10 md:py-12 border-t border-border relative section-bg-5">
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl animate-float animation-delay-4000 transform -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/8 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/8 rounded-full blur-3xl animate-float animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-pink-500/8 rounded-full blur-3xl animate-float animation-delay-4000" style={{ transform: 'translate(-50%, -50%)' }}></div>
       </div>
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <ScrollReveal animation="fade-in">
@@ -153,13 +153,14 @@ export default function Pricing() {
                   {/* Цены */}
                   <div className="mb-2">
                     <span className={`text-3xl md:text-4xl lg:text-5xl font-light tracking-tight ${plan.popular ? 'text-accent' : 'text-foreground'} group-hover:scale-110 transition-transform duration-500 inline-block`}>
-                      {plan.price}
+                      {plan.monthly.split('/')[0]}
+                      <span className="text-lg md:text-xl lg:text-2xl text-muted font-light">/мес</span>
                     </span>
                   </div>
                   
                   <div className="space-y-1">
                     <p className="text-sm text-muted font-light">
-                      или <span className="text-foreground font-normal">{plan.monthly}</span>
+                      или <span className="text-foreground font-normal">{plan.price}</span>
                     </p>
                     <p className="text-xs text-muted font-light">
                       Рассрочка доступна
@@ -209,7 +210,7 @@ export default function Pricing() {
               {/* Декоративные элементы для популярного тарифа */}
               {plan.popular && (
                 <>
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl -z-10"></div>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/8 rounded-full blur-2xl -z-10"></div>
                   <div className="absolute bottom-0 left-0 w-24 h-24 bg-purple-400/10 rounded-full blur-xl -z-10"></div>
                 </>
               )}

@@ -244,7 +244,7 @@ export default function BenefitCalculator() {
                   Стоимость тарифа
                 </div>
                 <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-foreground mb-1 sm:mb-2 break-all overflow-hidden leading-tight min-w-0">
-                  ${calculations.planCost.toLocaleString()}
+                  ${calculations.planCost.toLocaleString('en-US')}
                 </div>
               </div>
 
@@ -253,7 +253,7 @@ export default function BenefitCalculator() {
                   Оффер с Go Offer
                 </div>
                 <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-accent mb-1 sm:mb-2 break-all overflow-hidden leading-tight min-w-0">
-                  ${Math.round(calculations.offerWithGoOffer).toLocaleString()}
+                  ${Math.round(calculations.offerWithGoOffer).toLocaleString('en-US')}
                 </div>
                 <div className="text-xs sm:text-sm text-muted mt-1 sm:mt-2 font-light break-words">
                   +{calculations.offerIncreasePercent.toFixed(1)}% к среднему рынку
@@ -265,7 +265,7 @@ export default function BenefitCalculator() {
                   Доп. доход/год
                 </div>
                 <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-green-400 mb-1 sm:mb-2 break-all overflow-hidden leading-tight min-w-0">
-                  +${Math.round(calculations.additionalAnnualIncome).toLocaleString()}
+                  +${Math.round(calculations.additionalAnnualIncome).toLocaleString('en-US')}
                 </div>
                 <div className="text-xs sm:text-sm text-muted mt-1 sm:mt-2 font-light break-words">
                   vs средний рынок
@@ -287,7 +287,7 @@ export default function BenefitCalculator() {
                         Если бы начали использовать Go Offer с самого начала
                       </div>
                       <div className="text-lg sm:text-xl md:text-2xl font-medium text-green-400 mb-1">
-                        ${Math.round(calculations.totalEarnedWithGoOffer).toLocaleString()}
+                        ${Math.round(calculations.totalEarnedWithGoOffer).toLocaleString('en-US')}
                       </div>
                       <div className="text-[10px] sm:text-xs text-muted font-light mt-auto">
                         Уже заработали бы за {calculations.monthsWorkedWithGoOffer} {calculations.monthsWorkedWithGoOffer === 1 ? 'месяц' : calculations.monthsWorkedWithGoOffer < 5 ? 'месяца' : 'месяцев'} работы
@@ -310,7 +310,7 @@ export default function BenefitCalculator() {
                       💸 Уже потеряно за время поиска работы
                     </div>
                     <div className="text-lg sm:text-xl md:text-2xl font-medium text-red-400 mb-1">
-                      ${Math.round(calculations.lostIncomeAlready).toLocaleString()}
+                      ${Math.round(calculations.lostIncomeAlready).toLocaleString('en-US')}
                     </div>
                     <div className="text-[10px] sm:text-xs text-muted font-light mb-1 sm:mb-1.5">
                       За {calculations.actualMonthsSearching === 12 && monthsSearching > 12 ? '12+' : calculations.actualMonthsSearching} {calculations.actualMonthsSearching === 1 ? 'месяц' : calculations.actualMonthsSearching < 5 ? 'месяца' : 'месяцев'} поиска работы

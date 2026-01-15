@@ -3,7 +3,7 @@ export default function Hero() {
     <section className="relative min-h-[33vh] py-12 md:py-16 flex items-center justify-center overflow-hidden">
       {/* Цветные градиенты на фоне */}
       <div className="absolute inset-0 opacity-50 scale-[0.5] origin-center">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-subtle-glow"></div>
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-500/12 rounded-full blur-3xl animate-subtle-glow"></div>
         <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-400/15 rounded-full blur-3xl animate-subtle-glow animation-delay-2000"></div>
         <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-pink-400/15 rounded-full blur-2xl animate-subtle-glow animation-delay-4000 transform -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute top-3/4 right-1/3 w-80 h-80 bg-cyan-400/10 rounded-full blur-3xl animate-subtle-glow animation-delay-3000"></div>

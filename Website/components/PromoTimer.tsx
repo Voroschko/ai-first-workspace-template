@@ -74,7 +74,7 @@ export default function PromoTimer() {
             <span className="text-foreground">В подарок </span>
             <span className="gradient-text">250 подач руками ассистентов</span>
           </h3>
-          <p className="text-xs sm:text-sm text-muted-bright font-light">
+          <p className="text-xs sm:text-sm text-muted font-light">
             При покупке любого тарифа до окончания таймера
           </p>
         </div>

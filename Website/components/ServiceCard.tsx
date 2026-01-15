@@ -48,7 +48,7 @@ export default function ServiceCard({
                 )}
               </div>
             </div>
-            <p className="text-gray-300 mb-4">{description}</p>
+            <p className="text-muted mb-4">{description}</p>
           </div>
           <div className="ml-4 flex-shrink-0">
             <svg
@@ -79,7 +79,7 @@ export default function ServiceCard({
               <h4 className="text-lg font-bold text-purple-400 mb-3">
                 Подробное описание
               </h4>
-              <p className="text-gray-300 leading-relaxed">{fullDescription}</p>
+              <p className="text-muted leading-relaxed">{fullDescription}</p>
             </div>
 
             {features.length > 0 && (
@@ -101,7 +101,7 @@ export default function ServiceCard({
                           clipRule="evenodd"
                         />
                       </svg>
-                      <span className="text-gray-300">{feature}</span>
+                      <span className="text-muted">{feature}</span>
                     </li>
                   ))}
                 </ul>

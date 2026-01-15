@@ -40,8 +40,8 @@ export default function AnimatedStars() {
       y: Math.random() * canvas.height,
       vx: (Math.random() - 0.5) * 0.2,
       vy: (Math.random() - 0.5) * 0.2,
-      radius: Math.random() * 1.2 + 0.8,
-      opacity: Math.random() * 0.4 + 0.5,
+      radius: Math.random() * 0.4 + 0.3,
+      opacity: Math.random() * 0.2 + 0.4,
     }))
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -77,23 +77,23 @@ export default function AnimatedStars() {
       distances.sort((a, b) => a.distance - b.distance)
       const nearest10 = distances.slice(0, 10).filter((d) => d.distance < connectionDistance)
 
-      // Белые соединения
+      // Темные соединения для видимости на белом фоне
       nearest10.forEach(({ index }) => {
         const particle = particles[index]
         const distance = Math.sqrt(
           Math.pow(particle.x - mousePos.x, 2) + Math.pow(particle.y - mousePos.y, 2)
         )
-        const opacity = Math.max(0, (1 - distance / connectionDistance) * 0.4)
+        const opacity = Math.max(0, (1 - distance / connectionDistance) * 0.5)
 
         const gradient = ctx.createLinearGradient(mousePos.x, mousePos.y, particle.x, particle.y)
-        gradient.addColorStop(0, `rgba(255, 255, 255, ${opacity * 0.6})`)
-        gradient.addColorStop(1, `rgba(255, 255, 255, ${opacity * 0.2})`)
+        gradient.addColorStop(0, `rgba(0, 0, 0, ${opacity * 0.6})`)
+        gradient.addColorStop(1, `rgba(0, 0, 0, ${opacity * 0.25})`)
 
         ctx.beginPath()
         ctx.moveTo(mousePos.x, mousePos.y)
         ctx.lineTo(particle.x, particle.y)
         ctx.strokeStyle = gradient
-        ctx.lineWidth = 1.2
+        ctx.lineWidth = 1
         ctx.stroke()
 
         nearest10.forEach(({ index: otherIndex }) => {
@@ -103,39 +103,37 @@ export default function AnimatedStars() {
               Math.pow(particle.x - otherParticle.x, 2) + Math.pow(particle.y - otherParticle.y, 2)
             )
             if (particleDistance < connectionDistance) {
-              const particleOpacity = Math.max(0, (1 - particleDistance / connectionDistance) * 0.25)
+              const particleOpacity = Math.max(0, (1 - particleDistance / connectionDistance) * 0.35)
               const particleGradient = ctx.createLinearGradient(particle.x, particle.y, otherParticle.x, otherParticle.y)
-              particleGradient.addColorStop(0, `rgba(255, 255, 255, ${particleOpacity * 0.5})`)
-              particleGradient.addColorStop(1, `rgba(255, 255, 255, ${particleOpacity * 0.15})`)
+              particleGradient.addColorStop(0, `rgba(0, 0, 0, ${particleOpacity * 0.4})`)
+              particleGradient.addColorStop(1, `rgba(0, 0, 0, ${particleOpacity * 0.15})`)
 
               ctx.beginPath()
               ctx.moveTo(particle.x, particle.y)
               ctx.lineTo(otherParticle.x, otherParticle.y)
               ctx.strokeStyle = particleGradient
-              ctx.lineWidth = 0.6
+              ctx.lineWidth = 0.5
               ctx.stroke()
             }
           }
         })
       })
 
-      // Рисуем БЕЛЫЕ частицы - никаких фиолетовых цветов!
+      // Рисуем темные частицы для видимости на белом фоне
       particles.forEach((particle) => {
-        // Яркая белая частица
+        // Темная частица с уменьшенной непрозрачностью
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
-        ctx.fillStyle = `rgb(255, 255, 255)`
-        ctx.globalAlpha = particle.opacity
-        ctx.fill()
+        ctx.fillStyle = `rgba(0, 0, 0, ${Math.min(0.5, particle.opacity * 0.6)})`
         ctx.globalAlpha = 1.0
+        ctx.fill()
 
-        // Внешнее белое свечение
+        // Внешнее темное свечение (более тонкое)
         ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.radius * 2, 0, Math.PI * 2)
-        ctx.fillStyle = `rgb(255, 255, 255)`
-        ctx.globalAlpha = particle.opacity * 0.15
-        ctx.fill()
+        ctx.arc(particle.x, particle.y, particle.radius * 1.5, 0, Math.PI * 2)
+        ctx.fillStyle = `rgba(0, 0, 0, ${particle.opacity * 0.08})`
         ctx.globalAlpha = 1.0
+        ctx.fill()
       })
 
       animationFrameRef.current = requestAnimationFrame(animate)

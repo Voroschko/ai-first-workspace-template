@@ -18,9 +18,9 @@ const nextConfig = {
   swcMinify: true,
   
   // Оптимизация bundle
-  experimental: {
-    optimizeCss: true,
-  },
+  // experimental: {
+  //   optimizeCss: true, // Отключено, может вызывать проблемы со стилями
+  // },
   
   // Кэширование заголовков
   async headers() {

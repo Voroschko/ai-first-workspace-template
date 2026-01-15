@@ -12,7 +12,7 @@ const Pricing = dynamic(() => import('@/components/Pricing'), { ssr: true })
 const Team = dynamic(() => import('@/components/Team'), { ssr: true })
 const FAQ = dynamic(() => import('@/components/FAQ'), { ssr: true })
 const Footer = dynamic(() => import('@/components/Footer'), { ssr: true })
-const AnimatedStars = dynamic(() => import('@/components/AnimatedStars'), { ssr: true })
+const AnimatedStars = dynamic(() => import('@/components/AnimatedStars'), { ssr: false })
 const BackToTop = dynamic(() => import('@/components/BackToTop'), { ssr: false })
 const Reviews = dynamic(() => import('@/components/Reviews'), { ssr: true })
 

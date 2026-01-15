@@ -25,10 +25,10 @@ export default function Benefits() {
   ]
 
   return (
-    <section className="py-16 md:py-20 border-t border-border relative">
-      <div className="absolute inset-0 opacity-25">
-        <div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl animate-float animation-delay-3000"></div>
+    <section className="py-16 md:py-20 border-t border-border relative section-bg-2">
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-purple-600/8 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-blue-600/8 rounded-full blur-3xl animate-float animation-delay-3000"></div>
       </div>
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <ScrollReveal animation="fade-in">
@@ -37,7 +37,7 @@ export default function Benefits() {
               <span className="text-foreground">Почему мы — </span>
               <span className="gradient-text">не как все</span>
             </h2>
-            <p className="text-base md:text-lg text-gray-300 max-w-xl mx-auto font-light">
+            <p className="text-base md:text-lg text-muted max-w-xl mx-auto font-light">
               Это не курс. Это команда профессионалов, которая работает на твой результат
             </p>
           </div>
@@ -53,7 +53,7 @@ export default function Benefits() {
                   </span>
                   <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r ${benefit.gradient} w-0 group-hover:w-full transition-all duration-500`}></span>
                 </h3>
-                <p className="text-sm md:text-base text-gray-300 font-light leading-relaxed">{benefit.description}</p>
+                <p className="text-sm md:text-base text-muted font-light leading-relaxed">{benefit.description}</p>
               </div>
             </ScrollReveal>
           ))}

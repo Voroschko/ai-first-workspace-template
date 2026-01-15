@@ -222,7 +222,7 @@ export default function Team() {
   }
 
   return (
-    <section id="about" className="py-16 md:py-20 border-t border-border relative">
+    <section id="about" className="py-16 md:py-20 border-t border-border relative section-bg-1">
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl animate-float"></div>
         <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float animation-delay-2000"></div>
@@ -233,7 +233,7 @@ export default function Team() {
         <ScrollReveal animation="fade-in">
           <div className="text-center mb-8 md:mb-10">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-3 md:mb-4 tracking-tight">
-              <span className="text-foreground">Together, we're here to </span>
+              <span className="text-foreground">Together, we&apos;re here to </span>
               <span className="gradient-text">help you land your dream job</span>
             </h2>
             <p className="text-sm md:text-base text-muted max-w-2xl mx-auto font-light">
@@ -315,26 +315,23 @@ export default function Team() {
                   <div className="group relative rounded-xl border border-border/50 bg-white/2 backdrop-blur-sm hover:border-purple-500/50 hover:bg-white/5 transition-all duration-500 overflow-hidden h-full w-full flex">
                     {/* Изображение участника */}
                     <div className="relative w-1/2 flex-shrink-0 overflow-hidden bg-gradient-to-br from-purple-500/10 to-blue-500/10">
-                      <img
-                        src={member.image}
-                        alt={`${member.name} - ${member.role}`}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement
-                          target.style.display = 'none'
-                          const placeholder = target.parentElement?.querySelector('.placeholder')
-                          if (placeholder) {
-                            (placeholder as HTMLElement).style.display = 'flex'
-                          }
-                        }}
-                      />
-                      {/* Заглушка, если изображение не загрузилось */}
-                      <div className="placeholder hidden absolute inset-0 items-center justify-center bg-gradient-to-br from-purple-500/20 to-blue-500/20">
-                        <div className="text-center">
-                          <div className="w-12 h-12 rounded-full bg-purple-500/30 mx-auto mb-2 flex items-center justify-center">
-                            <span className="text-2xl font-light text-white">
-                              {member.name.charAt(0)}
-                            </span>
+                      <div className="w-full h-full relative">
+                        <Image
+                          src={member.image}
+                          alt={`${member.name} - ${member.role}`}
+                          width={200}
+                          height={200}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          unoptimized
+                        />
+                        {/* Заглушка, если изображение не загрузилось */}
+                        <div className="placeholder hidden absolute inset-0 items-center justify-center bg-gradient-to-br from-purple-500/20 to-blue-500/20">
+                          <div className="text-center">
+                            <div className="w-12 h-12 rounded-full bg-purple-500/30 mx-auto mb-2 flex items-center justify-center">
+                              <span className="text-2xl font-light text-white">
+                                {member.name.charAt(0)}
+                              </span>
+                            </div>
                           </div>
                         </div>
                       </div>

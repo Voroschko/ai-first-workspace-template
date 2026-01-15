@@ -373,7 +373,7 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-5xl md:text-6xl font-light mb-6 tracking-tight animate-fade-in">
-              <span className="text-foreground">Go Offer's </span>
+              <span className="text-foreground">Go Offer&apos;s </span>
               <span className="gradient-text">Method</span>
             </h2>
             <p className="text-xl text-muted max-w-2xl mx-auto">

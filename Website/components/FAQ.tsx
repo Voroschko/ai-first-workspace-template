@@ -59,7 +59,7 @@ export default function FAQ() {
   }
 
   return (
-    <section id="faq" className="py-16 md:py-20 border-t border-border relative">
+    <section id="faq" className="py-16 md:py-20 border-t border-border relative section-bg-2">
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float"></div>
         <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float animation-delay-2000"></div>
@@ -91,7 +91,7 @@ export default function FAQ() {
                   aria-expanded={openIndex === index}
                 >
                   <h3 className={`text-sm md:text-base font-light flex-1 transition-colors ${
-                    index % 2 === 0 ? 'text-foreground group-hover:text-purple-300' : 'text-foreground group-hover:text-blue-300'
+                    index % 2 === 0 ? 'text-foreground group-hover:text-purple-600' : 'text-foreground group-hover:text-blue-600'
                   }`}>
                     {faq.question}
                   </h3>

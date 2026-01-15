@@ -54,7 +54,7 @@ export default function PricingForm() {
       <form onSubmit={handleSubmit} className="space-y-8">
         {/* Группы тарифов */}
         <div>
-          <label className="block text-sm text-gray-300 font-light uppercase tracking-wide mb-6">
+          <label className="block text-sm text-muted font-light uppercase tracking-wide mb-6">
             Группа тарифов
           </label>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -75,7 +75,7 @@ export default function PricingForm() {
                 <div className="text-sm font-light text-foreground uppercase tracking-wide mb-2">
                   {group.name}
                 </div>
-                <div className="text-xs text-gray-300 font-light">
+                <div className="text-xs text-muted font-light">
                   {group.plans.length} план(ов)
                 </div>
               </button>
@@ -86,7 +86,7 @@ export default function PricingForm() {
         {/* Выбор плана */}
         {selectedGroup && (
           <div className="animate-fade-in">
-            <label className="block text-sm text-gray-300 font-light uppercase tracking-wide mb-6">
+            <label className="block text-sm text-muted font-light uppercase tracking-wide mb-6">
               Выберите план
             </label>
             <div className="grid grid-cols-1 gap-4">
@@ -116,7 +116,7 @@ export default function PricingForm() {
         {selectedPlan && (
           <div className="space-y-6 animate-fade-in border-t border-border pt-8">
             <div>
-              <label htmlFor="name" className="block text-sm text-gray-300 font-light uppercase tracking-wide mb-2">
+              <label htmlFor="name" className="block text-sm text-muted font-light uppercase tracking-wide mb-2">
                 Имя
               </label>
               <input
@@ -132,7 +132,7 @@ export default function PricingForm() {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm text-gray-300 font-light uppercase tracking-wide mb-2">
+              <label htmlFor="email" className="block text-sm text-muted font-light uppercase tracking-wide mb-2">
                 Email
               </label>
               <input
@@ -148,7 +148,7 @@ export default function PricingForm() {
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-sm text-gray-300 font-light uppercase tracking-wide mb-2">
+              <label htmlFor="phone" className="block text-sm text-muted font-light uppercase tracking-wide mb-2">
                 Телефон
               </label>
               <input
@@ -163,7 +163,7 @@ export default function PricingForm() {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm text-gray-300 font-light uppercase tracking-wide mb-2">
+              <label htmlFor="message" className="block text-sm text-muted font-light uppercase tracking-wide mb-2">
                 Сообщение (необязательно)
               </label>
               <textarea

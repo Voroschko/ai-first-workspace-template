@@ -64,11 +64,11 @@ function DetailedStatsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const colorMap = {
-    purple: { text: 'text-purple-300', border: 'border-purple-500/50' },
-    blue: { text: 'text-blue-300', border: 'border-blue-500/50' },
-    pink: { text: 'text-pink-300', border: 'border-pink-500/50' },
-    cyan: { text: 'text-cyan-300', border: 'border-cyan-500/50' },
-    violet: { text: 'text-violet-300', border: 'border-violet-500/50' },
+    purple: { text: 'text-purple-600', border: 'border-purple-500/40' },
+    blue: { text: 'text-blue-600', border: 'border-blue-500/40' },
+    pink: { text: 'text-pink-600', border: 'border-pink-500/40' },
+    cyan: { text: 'text-cyan-600', border: 'border-cyan-500/40' },
+    violet: { text: 'text-violet-600', border: 'border-violet-500/40' },
   }
 
   const totalItems = stats.length
@@ -197,19 +197,19 @@ export default function Results() {
   ]
 
   const colorClasses = {
-    purple: 'text-purple-300',
-    blue: 'text-blue-300',
-    pink: 'text-pink-300',
-    cyan: 'text-cyan-300',
-    violet: 'text-violet-300',
+    purple: 'text-purple-600',
+    blue: 'text-blue-600',
+    pink: 'text-pink-600',
+    cyan: 'text-cyan-600',
+    violet: 'text-violet-600',
   }
 
   return (
-    <section className="py-16 md:py-20 border-t border-border relative">
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 animate-float"></div>
-        <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-float animation-delay-2000"></div>
-        <div className="absolute bottom-1/3 left-1/4 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl animate-float animation-delay-4000"></div>
+    <section className="py-16 md:py-20 border-t border-border relative section-bg-4">
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-purple-500/8 rounded-full blur-3xl animate-float" style={{ transform: 'translate(-50%, -50%)' }}></div>
+        <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-blue-500/8 rounded-full blur-3xl animate-float animation-delay-2000"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-80 h-80 bg-pink-500/8 rounded-full blur-3xl animate-float animation-delay-4000"></div>
       </div>
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <ScrollReveal animation="fade-in">
@@ -218,7 +218,7 @@ export default function Results() {
               <span className="text-foreground">Результаты в </span>
               <span className="gradient-text">цифрах</span>
             </h2>
-            <p className="text-base md:text-lg text-gray-300 max-w-xl mx-auto font-light mb-6 md:mb-8">
+            <p className="text-base md:text-lg text-muted max-w-xl mx-auto font-light mb-6 md:mb-8">
               Это не обещания, это статистика наших выпускников
             </p>
           </div>
@@ -231,7 +231,7 @@ export default function Results() {
                 <div className={`text-3xl md:text-4xl lg:text-5xl font-light mb-3 md:mb-4 tracking-tight transition-all duration-500 ${colorClasses[result.color as keyof typeof colorClasses]} group-hover:scale-110`}>
                   {result.number}
                 </div>
-                <p className="text-xs text-gray-300 font-light uppercase tracking-wide leading-relaxed group-hover:text-foreground transition-colors">{result.label}</p>
+                <p className="text-xs text-muted font-light uppercase tracking-wide leading-relaxed group-hover:text-foreground transition-colors">{result.label}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -240,7 +240,7 @@ export default function Results() {
         {/* Детальная статистика - Карусель */}
         <ScrollReveal animation="fade-in" delay={400}>
           <div className="max-w-6xl mx-auto mb-12 md:mb-16">
-            <p className="text-center text-muted-bright text-sm font-light mb-8 md:mb-10 lg:mb-12 leading-relaxed">
+            <p className="text-center text-muted text-sm font-light mb-8 md:mb-10 lg:mb-12 leading-relaxed">
               Мы собрали данные по сотням клиентов, которые прошли программу Go Offer и активно работали по системе. Вот что они получают на практике:
             </p>
             
@@ -258,7 +258,7 @@ export default function Results() {
               {companies.map((company, index) => (
                 <div
                   key={index}
-                  className="text-sm text-gray-300 font-light uppercase tracking-wide hover:text-purple-300 hover:scale-110 transition-all duration-300 cursor-default"
+                  className="text-sm text-muted font-light uppercase tracking-wide hover:text-purple-600 hover:scale-110 transition-all duration-300 cursor-default"
                 >
                   {company}
                 </div>
@@ -268,7 +268,7 @@ export default function Results() {
         </ScrollReveal>
 
         <ScrollReveal animation="fade-in" delay={800}>
-          <p className="text-center text-gray-400 text-xs mt-8 md:mt-12 font-light">
+          <p className="text-center text-muted text-xs mt-8 md:mt-12 font-light">
             *На основе самоотчетов участников. Индивидуальные результаты могут отличаться.
           </p>
         </ScrollReveal>
