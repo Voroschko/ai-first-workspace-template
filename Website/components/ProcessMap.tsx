@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import ScrollReveal from './ScrollReveal'
+import Icon from './Icon'
 
 interface ProcessStep {
   id: number
@@ -18,7 +19,7 @@ const processSteps: ProcessStep[] = [
     title: 'Стратегическая сессия',
     description: 'Разработка персональной карьерной стратегии с ментором',
     duration: 'Неделя 1',
-    icon: '🎯',
+    icon: 'target',
     details: [
       'Анализ опыта и целей',
       'Разработка персональной стратегии',
@@ -31,7 +32,7 @@ const processSteps: ProcessStep[] = [
     title: 'Оптимизация резюме',
     description: 'Создание ATS-friendly резюме, которое проходит фильтры',
     duration: 'Неделя 1-2',
-    icon: '📄',
+    icon: 'resume',
     details: [
       'Профессиональная упаковка',
       'ATS-оптимизация',
@@ -44,7 +45,7 @@ const processSteps: ProcessStep[] = [
     title: 'Оптимизация LinkedIn',
     description: 'Повышение видимости и открытие новых возможностей',
     duration: 'Неделя 2',
-    icon: '💼',
+    icon: 'briefcase',
     details: [
       'Оптимизация профиля',
       'Обучение нетворкингу',
@@ -57,7 +58,7 @@ const processSteps: ProcessStep[] = [
     title: 'Автоматизация поиска',
     description: 'AI-инструменты экономят 20+ часов в неделю',
     duration: 'Неделя 2-6',
-    icon: '🤖',
+    icon: 'robot',
     details: [
       'Hub для поиска работы',
       'Easy Apply автоматизация',
@@ -70,7 +71,7 @@ const processSteps: ProcessStep[] = [
     title: 'Mock интервью',
     description: 'Практика с экспертами для уверенного прохождения',
     duration: 'Неделя 3-6',
-    icon: '🎤',
+    icon: 'microphone',
     details: [
       'Подготовка к интервью',
       'Практика с экспертами',
@@ -83,7 +84,7 @@ const processSteps: ProcessStep[] = [
     title: 'Получение оффера',
     description: '68% получают оффер за 3 месяца',
     duration: 'Неделя 3-6',
-    icon: '🎉',
+    icon: 'celebration',
     details: [
       'Переговоры о зарплате',
       'Оффер на 28.4% выше рынка',
@@ -157,8 +158,8 @@ export default function ProcessMap() {
                       </div>
 
                       {/* Иконка */}
-                      <div className="text-4xl mb-3 text-center group-hover:scale-110 transition-transform duration-300">
-                        {step.icon}
+                      <div className="w-16 h-16 mb-3 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform duration-300 text-purple-400">
+                        <Icon name={step.icon} size={64} className="text-current" />
                       </div>
 
                       {/* Заголовок */}

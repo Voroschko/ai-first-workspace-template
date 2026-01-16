@@ -532,3 +532,19 @@ select {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* Бесконечная прокрутка карусели */
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+.animate-scroll-infinite {
+  animation: scroll-infinite 30s linear infinite;
+  display: flex;
+  gap: 1.5rem;
+}

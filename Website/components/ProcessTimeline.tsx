@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import ScrollReveal from './ScrollReveal'
+import Icon from './Icon'
 
 interface TimelineStep {
   id: number
@@ -25,7 +26,7 @@ const timelineSteps: TimelineStep[] = [
       'Разработка персональной стратегии',
       'Онбординг в систему Go Offer'
     ],
-    icon: '🎯',
+    icon: 'target',
     color: 'purple'
   },
   {
@@ -39,7 +40,7 @@ const timelineSteps: TimelineStep[] = [
       'Оптимизация LinkedIn профиля',
       'Обучение нетворкингу'
     ],
-    icon: '📄',
+    icon: 'resume',
     color: 'blue'
   },
   {
@@ -54,7 +55,7 @@ const timelineSteps: TimelineStep[] = [
       'Парсинг писем куратором',
       'Первые отклики от работодателей'
     ],
-    icon: '🚀',
+    icon: 'rocket',
     color: 'green'
   },
   {
@@ -69,7 +70,7 @@ const timelineSteps: TimelineStep[] = [
       'Переговоры о зарплате',
       'Получение офферов'
     ],
-    icon: '🎤',
+    icon: 'microphone',
     color: 'pink'
   },
   {
@@ -84,7 +85,7 @@ const timelineSteps: TimelineStep[] = [
       'Оффер на 28.4% выше рынка',
       'Успешное начало работы'
     ],
-    icon: '🎉',
+    icon: 'celebration',
     color: 'yellow'
   }
 ]
@@ -275,12 +276,12 @@ export default function ProcessTimeline() {
                         <div className="flex items-start gap-4">
                           {/* Иконка и номер */}
                           <div className="flex-shrink-0">
-                            <div className={`w-12 h-12 rounded-full flex items-center justify-center text-2xl transition-all duration-500 ${
+                            <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 ${
                               isActive 
                                 ? 'bg-background/50 scale-110' 
                                 : 'bg-background/30'
                             }`}>
-                              {step.icon}
+                              <Icon name={step.icon} size={28} className={getIconColor(step.color)} />
                             </div>
                             <div className={`mt-2 text-xs font-medium text-center transition-colors ${
                               isActive ? 'text-foreground' : 'text-muted'

@@ -64,15 +64,15 @@ export default function PromoTimer() {
       </div>
 
       <div className="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 md:gap-12 relative z-10">
-        <div className="text-center md:text-left flex-1">
+        <div className="text-center md:text-left flex-1 min-w-0">
           <div className="mb-3 sm:mb-4">
             <span className="text-[10px] sm:text-xs text-purple-600 font-light uppercase tracking-wide">
               Ограниченное предложение
             </span>
           </div>
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-light mb-2 sm:mb-3 tracking-tight">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-light mb-2 sm:mb-3 tracking-tight leading-tight break-words overflow-wrap-anywhere">
             <span className="text-foreground">В подарок </span>
-            <span className="gradient-text">250 подач руками ассистентов</span>
+            <span className="gradient-text whitespace-normal">250 подач руками ассистентов</span>
           </h3>
           <p className="text-xs sm:text-sm text-muted font-light">
             При покупке любого тарифа до окончания таймера

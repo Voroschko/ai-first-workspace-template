@@ -1,4 +1,49 @@
+import { MailIcon, TelegramIcon, InstagramIcon, YouTubeIcon } from './ContactIcons'
+
 export default function Footer() {
+  const socialLinks = [
+    {
+      icon: MailIcon,
+      href: 'mailto:friend@go-offer.us',
+      label: 'Email',
+      value: 'friend@go-offer.us',
+      color: 'hover:text-purple-400',
+    },
+    {
+      icon: TelegramIcon,
+      href: 'https://t.me/go_offer_support',
+      label: 'TG Support',
+      value: '@go_offer_support',
+      color: 'hover:text-blue-400',
+    },
+    {
+      icon: TelegramIcon,
+      href: 'https://t.me/go_offer_job_search',
+      label: 'TG Community',
+      value: '@go_offer_job_search',
+      color: 'hover:text-cyan-400',
+    },
+    {
+      icon: InstagramIcon,
+      href: 'https://www.instagram.com/go_offer/',
+      label: 'Instagram',
+      value: '@go_offer',
+      color: 'hover:text-pink-400',
+    },
+    {
+      icon: YouTubeIcon,
+      href: 'https://www.youtube.com/@GoOfferUS/videos',
+      label: 'YouTube',
+      value: 'Go Offer',
+      color: 'hover:text-red-400',
+    },
+  ].sort((a, b) => {
+    // Сортировка по общей длине текста (метка + значение) от самого длинного к короткому
+    const lengthA = (a.label + ': ' + a.value).length
+    const lengthB = (b.label + ': ' + b.value).length
+    return lengthB - lengthA
+  })
+
   return (
     <footer id="contact" className="bg-background border-t border-border py-12 md:py-16 relative">
       <div className="absolute inset-0 opacity-20">
@@ -43,25 +88,32 @@ export default function Footer() {
           </div>
           <div className="animate-fade-in animation-delay-300">
             <h4 className="text-sm font-light mb-6 text-foreground uppercase tracking-wide">Контакты</h4>
-            <ul className="space-y-4 text-sm text-muted font-light">
-              <li>
-                <span className="text-muted">Почта:</span>{' '}
-                <a href="mailto:friend@go-offer.us" className="hover:text-purple-600 transition-colors">
-                  friend@go-offer.us
-                </a>
-              </li>
-              <li>
-                <span className="text-muted">TG:</span>{' '}
-                <a href="https://t.me/go_offer_support" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">
-                  @go_offer_support
-                </a>
-              </li>
-              <li>
-                <span className="text-muted">YouTube:</span>{' '}
-                <a href="https://www.youtube.com/@GoOfferUS/videos" target="_blank" rel="noopener noreferrer" className="hover:text-pink-600 transition-colors">
-                  Go Offer
-                </a>
-              </li>
+            <ul className="space-y-3.5">
+              {socialLinks.map((link, index) => {
+                const IconComponent = link.icon
+                return (
+                  <li key={index}>
+                    <a
+                      href={link.href}
+                      target={link.href.startsWith('http') ? '_blank' : undefined}
+                      rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      className={`flex items-center gap-3 text-sm text-muted font-light group transition-colors ${link.color}`}
+                    >
+                      <div className="w-5 h-5 flex items-center justify-center flex-shrink-0 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
+                        <IconComponent size={18} className="text-current" />
+                      </div>
+                      <div className="flex items-baseline gap-2 min-w-0">
+                        <span className="text-xs uppercase tracking-wide opacity-70 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                          {link.label}:
+                        </span>
+                        <span className="text-sm font-light leading-relaxed group-hover:translate-x-0.5 transition-transform duration-300">
+                          {link.value}
+                        </span>
+                      </div>
+                    </a>
+                  </li>
+                )
+              })}
             </ul>
           </div>
         </div>

@@ -1,0 +1,16 @@
+﻿{
+  "mcpServers": {
+    "imagegen-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "imagegen-mcp",
+        "--models",
+        "gpt-image-1"
+      ],
+      "env": {
+        "OPENAI_API_KEY": "${OPENAI_API_KEY}"
+      }
+    }
+  }
+}

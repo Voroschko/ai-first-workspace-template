@@ -15,7 +15,7 @@ export default function Pricing() {
       name: 'Take All',
       price: '$2850',
       monthly: '$119/мес',
-      image: '/images/tariffs/take-all.svg',
+      image: '/images/tariffs/take-all.svg?v=2',
       features: [
         'Hub for 6 months + easy apply',
         'Check-ups/calls with a coach - 1',
@@ -35,7 +35,7 @@ export default function Pricing() {
       name: 'Take All +',
       price: '$4950',
       monthly: '$206/мес',
-      image: '/images/tariffs/take-all-plus.svg',
+      image: '/images/tariffs/take-all-plus.svg?v=2',
       features: [
         'Hub for 6 months + easy and long apply',
         'Check-ups/calls with a coach - 6',
@@ -55,7 +55,7 @@ export default function Pricing() {
       name: 'VIP',
       price: '$7750',
       monthly: '$322/мес',
-      image: '/images/tariffs/vip.svg',
+      image: '/images/tariffs/vip.svg?v=2',
       features: [
         'Check-ups/calls with a coach - 12',
         '+ 12 months (for independent submissions) easy and long apply',
@@ -144,6 +144,7 @@ export default function Pricing() {
                       height={80}
                       className="w-full h-full object-contain"
                       loading="lazy"
+                      unoptimized
                     />
                   </div>
                 </div>
@@ -240,7 +241,6 @@ export default function Pricing() {
             </ScrollReveal>
           ))}
         </div>
-        )}
 
         {/* Интерактивный калькулятор выгоды */}
         <div className="mb-8 md:mb-10">

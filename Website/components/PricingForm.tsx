@@ -15,6 +15,7 @@ export default function PricingForm() {
     email: '',
     phone: '',
     message: '',
+    consent: false,
   })
 
   const planGroups: PlanGroup[] = [
@@ -39,9 +40,13 @@ export default function PricingForm() {
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const target = e.target
+    const value = target.type === 'checkbox' ? (target as HTMLInputElement).checked : target.value
+    const name = target.name
+
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     })
   }
 
@@ -177,13 +182,49 @@ export default function PricingForm() {
               />
             </div>
 
+            {/* Чекбокс согласия */}
+            <div className="pt-2">
+              <label className="flex items-start gap-3 cursor-pointer group">
+                <div className="relative flex-shrink-0 mt-0.5">
+                  <input
+                    type="checkbox"
+                    id="consent"
+                    name="consent"
+                    checked={formData.consent}
+                    onChange={handleInputChange}
+                    required
+                    className="sr-only peer"
+                  />
+                  <div className="w-5 h-5 border-2 border-border rounded-sm bg-background transition-all duration-300 peer-checked:bg-purple-500 peer-checked:border-purple-500 peer-focus:ring-2 peer-focus:ring-purple-500/20 group-hover:border-purple-400/50 flex items-center justify-center">
+                    {formData.consent && (
+                      <svg
+                        className="w-3.5 h-3.5 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    )}
+                  </div>
+                </div>
+                <span className="text-xs md:text-sm text-muted font-light leading-relaxed flex-1 group-hover:text-foreground/80 transition-colors">
+                  Я даю согласие на обработку персональных данных и получение личных сообщений от Go Offer, включая информацию о тарифах, услугах и специальных предложениях
+                </span>
+              </label>
+            </div>
+
             <div className="pt-4">
               <button
                 type="submit"
-                className="w-full border border-foreground px-8 py-4 text-sm font-light text-foreground hover:bg-foreground hover:text-background transition-all uppercase tracking-wide relative overflow-hidden group"
+                disabled={!formData.consent}
+                className="w-full border border-foreground px-8 py-4 text-sm font-light text-foreground hover:bg-foreground hover:text-background transition-all uppercase tracking-wide relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-foreground"
               >
                 <span className="relative z-10">Отправить заявку</span>
-                <span className="absolute inset-0 bg-purple-300/10 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <span className="absolute inset-0 bg-purple-300/10 opacity-0 group-hover:opacity-100 transition-opacity group-disabled:opacity-0"></span>
               </button>
             </div>
           </div>

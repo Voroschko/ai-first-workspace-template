@@ -174,25 +174,6 @@ export default function ServicesPage() {
     },
   ]
 
-  const methodItems = [
-    {
-      title: 'Automation',
-      description: 'Leverage AI-powered tools to streamline your job search. Save time and master strategies for lasting success.',
-    },
-    {
-      title: 'Networking',
-      description: 'Expand your network and build meaningful connections that accelerate your career. Gain support, motivation, and referrals.',
-    },
-    {
-      title: 'Community',
-      description: 'Join a supportive community to exchange insights, find motivation, and connect with like-minded professionals.',
-    },
-    {
-      title: 'Expert Guidance',
-      description: 'Access proven strategies from successful job seekers. Get tailored solutions to overcome hidden challenges.',
-    },
-  ]
-
   const companies = [
     'TikTok',
     'Microsoft',
@@ -370,33 +351,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Go Offer's Method */}
-      <section className="py-10 border-t border-border relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-5xl md:text-6xl font-light mb-6 tracking-tight animate-fade-in">
-              <span className="text-foreground">Go Offer&apos;s </span>
-              <span className="gradient-text">Method</span>
-            </h2>
-            <p className="text-xl text-muted max-w-2xl mx-auto">
-              What to Expect from the Program
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {methodItems.map((item, index) => (
-              <div
-                key={index}
-                className="p-6 rounded-2xl border border-purple-500 bg-purple-500/5 backdrop-blur-sm hover:bg-purple-500/10 transition-all"
-              >
-                <h3 className="text-xl font-bold text-accent mb-3">{item.title}</h3>
-                <p className="text-muted text-sm">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Results */}
       <section className="py-10 border-t border-border relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -407,34 +361,31 @@ export default function ServicesPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-12">
-            <div className="text-center p-6 rounded-2xl border border-purple-500 bg-purple-500/5 backdrop-blur-sm hover:bg-purple-500/10 transition-all">
-              <div className="text-4xl mb-4">📈</div>
-              <div className="text-3xl font-bold text-accent mb-2">1100+</div>
-              <p className="text-muted text-sm">Клиентов по всему миру</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 lg:gap-8 max-w-7xl mx-auto mb-12">
+            <div className="text-center p-4 md:p-6 rounded-2xl border border-purple-500 bg-purple-500/5 backdrop-blur-sm hover:bg-purple-500/10 transition-all">
+              <div className="text-3xl md:text-4xl mb-3 md:mb-4">📈</div>
+              <div className="text-2xl md:text-3xl font-bold text-accent mb-2">1100+</div>
+              <p className="text-xs md:text-sm text-muted">Клиентов по всему миру</p>
             </div>
-            <div className="text-center p-6 rounded-2xl border border-purple-500 bg-purple-500/5 backdrop-blur-sm hover:bg-purple-500/10 transition-all">
-              <div className="text-4xl mb-4">🎯</div>
-              <div className="text-3xl font-bold text-accent mb-2">5-15x</div>
-              <p className="text-muted text-sm">Больше релевантных откликов от работодателей*</p>
+            <div className="text-center p-4 md:p-6 rounded-2xl border border-purple-500 bg-purple-500/5 backdrop-blur-sm hover:bg-purple-500/10 transition-all">
+              <div className="text-3xl md:text-4xl mb-3 md:mb-4">🎯</div>
+              <div className="text-2xl md:text-3xl font-bold text-accent mb-2">5-15x</div>
+              <p className="text-xs md:text-sm text-muted">Больше релевантных откликов от работодателей*</p>
             </div>
-            <div className="text-center p-6 rounded-2xl border border-purple-500 bg-purple-500/5 backdrop-blur-sm hover:bg-purple-500/10 transition-all">
-              <div className="text-4xl mb-4">⚡</div>
-              <div className="text-3xl font-bold text-accent mb-2">5x</div>
-              <p className="text-muted text-sm">Больше приглашений на интервью*</p>
+            <div className="text-center p-4 md:p-6 rounded-2xl border border-purple-500 bg-purple-500/5 backdrop-blur-sm hover:bg-purple-500/10 transition-all">
+              <div className="text-3xl md:text-4xl mb-3 md:mb-4">⚡</div>
+              <div className="text-2xl md:text-3xl font-bold text-accent mb-2">5x</div>
+              <p className="text-xs md:text-sm text-muted">Больше приглашений на интервью*</p>
             </div>
-            <div className="text-center p-6 rounded-2xl border border-purple-500 bg-purple-500/5 backdrop-blur-sm hover:bg-purple-500/10 transition-all">
-              <div className="text-4xl mb-4">💰</div>
-              <div className="text-3xl font-bold text-accent mb-2">67%</div>
-              <p className="text-muted text-sm">Клиентов находят работу мечты за 6 месяцев*</p>
+            <div className="text-center p-4 md:p-6 rounded-2xl border border-purple-500 bg-purple-500/5 backdrop-blur-sm hover:bg-purple-500/10 transition-all">
+              <div className="text-3xl md:text-4xl mb-3 md:mb-4">💰</div>
+              <div className="text-2xl md:text-3xl font-bold text-accent mb-2">67%</div>
+              <p className="text-xs md:text-sm text-muted">Клиентов находят работу мечты за 6 месяцев*</p>
             </div>
-          </div>
-
-          <div className="text-center mb-12">
-            <div className="inline-block p-6 rounded-2xl border border-purple-500 bg-purple-500/5 backdrop-blur-sm">
-              <div className="text-4xl mb-4">💎</div>
-              <div className="text-2xl font-bold text-accent mb-2">~28.4%</div>
-              <p className="text-muted">Оффер выше среднего по рынку*</p>
+            <div className="text-center p-4 md:p-6 rounded-2xl border border-purple-500 bg-purple-500/5 backdrop-blur-sm hover:bg-purple-500/10 transition-all">
+              <div className="text-3xl md:text-4xl mb-3 md:mb-4">💎</div>
+              <div className="text-xl md:text-2xl font-bold text-accent mb-2">~28.4%</div>
+              <p className="text-xs md:text-sm text-muted">Оффер выше среднего по рынку*</p>
             </div>
           </div>
 
@@ -447,15 +398,18 @@ export default function ServicesPage() {
             <h3 className="text-2xl font-bold text-foreground mb-8">
               Компании, которые интервьюируют наших кандидатов
             </h3>
-            <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
-              {companies.map((company, index) => (
-                <div
-                  key={index}
-                  className="px-6 py-3 rounded-lg border border-purple-500/30 bg-purple-500/5 backdrop-blur-sm text-muted hover:text-accent hover:border-purple-500 transition-all"
-                >
-                  {company}
-                </div>
-              ))}
+            <div className="relative overflow-hidden w-full">
+              <div className="flex gap-6 animate-scroll-infinite whitespace-nowrap">
+                {/* Дублируем массив для бесконечной прокрутки */}
+                {[...companies, ...companies, ...companies].map((company, index) => (
+                  <div
+                    key={`company-${index}`}
+                    className="inline-flex px-6 py-3 rounded-lg border border-purple-500/30 bg-purple-500/5 backdrop-blur-sm text-muted hover:text-accent hover:border-purple-500 transition-all flex-shrink-0"
+                  >
+                    {company}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

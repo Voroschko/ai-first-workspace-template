@@ -50,6 +50,9 @@ next-env.d.ts
 *.swo
 *~
 
+# MCP Configuration (optional - can be committed if using env vars)
+# .cursor/mcp.json - Note: Only commit if using ${ENV_VAR} syntax, not real keys
+
 # OS
 Thumbs.db
 .DS_Store
