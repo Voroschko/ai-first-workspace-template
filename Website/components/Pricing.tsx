@@ -167,9 +167,12 @@ export default function Pricing() {
                     <p className="text-sm text-muted font-light">
                       или <span className="text-foreground font-normal">{plan.price}</span>
                     </p>
-                    <p className="text-xs text-muted font-light">
-                      Рассрочка доступна
-                    </p>
+                    <div className="flex flex-wrap items-center gap-2 text-xs text-muted font-light">
+                      <span>Рассрочка доступна</span>
+                      <span className="inline-flex items-center rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-foreground">
+                        Налоговый вычет
+                      </span>
+                    </div>
                   </div>
                 </div>
 

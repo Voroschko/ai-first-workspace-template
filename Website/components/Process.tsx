@@ -135,24 +135,24 @@ export default function Process() {
   const getColorClasses = (color: string, isActive: boolean) => {
     const colors: Record<string, { active: string; inactive: string }> = {
       purple: {
-        active: 'bg-purple-500/20 border-purple-500/50',
-        inactive: 'bg-background/30 border-border/30'
+        active: 'bg-background/95 border-purple-500/60',
+        inactive: 'bg-background/90 border-border/40'
       },
       blue: {
-        active: 'bg-blue-500/20 border-blue-500/50',
-        inactive: 'bg-background/30 border-border/30'
+        active: 'bg-background/95 border-blue-500/60',
+        inactive: 'bg-background/90 border-border/40'
       },
       green: {
-        active: 'bg-green-500/20 border-green-500/50',
-        inactive: 'bg-background/30 border-border/30'
+        active: 'bg-background/95 border-green-500/60',
+        inactive: 'bg-background/90 border-border/40'
       },
       pink: {
-        active: 'bg-pink-500/20 border-pink-500/50',
-        inactive: 'bg-background/30 border-border/30'
+        active: 'bg-background/95 border-pink-500/60',
+        inactive: 'bg-background/90 border-border/40'
       },
       yellow: {
-        active: 'bg-yellow-500/20 border-yellow-500/50',
-        inactive: 'bg-background/30 border-border/30'
+        active: 'bg-background/95 border-yellow-500/60',
+        inactive: 'bg-background/90 border-border/40'
       }
     }
     const colorConfig = colors[color] || colors.purple
@@ -212,14 +212,19 @@ export default function Process() {
           </div>
         </ScrollReveal>
 
-        <div ref={timelineRef} className="max-w-5xl mx-auto">
+        <div ref={timelineRef} className="relative max-w-5xl mx-auto">
           {/* Timeline линия */}
-          <div className="relative hidden md:block mb-8">
-            <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-purple-500/20 via-blue-500/20 via-green-500/20 via-pink-500/20 to-yellow-500/20 transform -translate-y-1/2"></div>
-            <div 
-              className="absolute top-1/2 left-0 h-1 bg-gradient-to-r from-purple-500 via-blue-500 via-green-500 via-pink-500 to-yellow-500 transform -translate-y-1/2 transition-all duration-1000"
-              style={{ width: `${progress}%` }}
-            ></div>
+          <div className="relative hidden md:block mb-10">
+            <div className="mb-2 flex items-center justify-between text-[10px] uppercase tracking-wide text-foreground/70">
+              <span>Прогресс</span>
+              <span>{Math.round(progress)}%</span>
+            </div>
+            <div className="relative h-2 rounded-full bg-border/30">
+              <div 
+                className="absolute left-0 top-0 h-2 rounded-full bg-foreground/70 transition-all duration-700"
+                style={{ width: `${progress}%` }}
+              ></div>
+            </div>
             
             {/* Точки на timeline */}
             {timelineSteps.map((step, index) => {
@@ -229,26 +234,22 @@ export default function Process() {
               return (
                 <div
                   key={step.id}
-                  className="absolute top-1/2 transform -translate-y-1/2 -translate-x-1/2 transition-all duration-500"
+                  className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 transition-all duration-500"
                   style={{ left: `${position}%` }}
                   onClick={() => setActiveStep(step.id)}
                 >
-                  <div className={`w-5 h-5 rounded-full border-2 transition-all duration-300 cursor-pointer ${
+                  <div className={`w-3 h-3 rounded-full border transition-all duration-300 cursor-pointer ${
                     isActive 
-                      ? `${getProgressColor(step.color)} scale-125 shadow-lg` 
+                      ? 'bg-foreground border-foreground/60 scale-110' 
                       : 'bg-background border-border/50'
-                  }`}>
-                    {isActive && (
-                      <div className={`w-full h-full rounded-full ${getProgressColor(step.color)} animate-pulse`}></div>
-                    )}
-                  </div>
+                  }`}></div>
                 </div>
               )
             })}
           </div>
 
           {/* Карточки этапов */}
-          <div className="space-y-3 md:space-y-4">
+          <div className="relative z-10 space-y-3 md:space-y-4">
             {timelineSteps.map((step, index) => {
               const isActive = activeStep === step.id
               const isPast = activeStep > step.id
@@ -262,16 +263,17 @@ export default function Process() {
                     onClick={() => setActiveStep(step.id)}
                   >
                     {/* Мобильная timeline линия */}
-                    <div className="md:hidden absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500/30 via-blue-500/30 via-green-500/30 via-pink-500/30 to-yellow-500/30">
+                    <div className="md:hidden absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500/30 via-blue-500/30 via-green-500/30 via-pink-500/30 to-yellow-500/30 z-0">
                       {isPast && (
                         <div className="absolute top-0 left-0 w-full bg-gradient-to-b from-purple-500 via-blue-500 via-green-500 via-pink-500 to-yellow-500 transition-all duration-500" style={{ height: '100%' }}></div>
                       )}
                     </div>
 
-                    <div className={`relative ml-0 md:ml-0 rounded-xl border backdrop-blur-sm transition-all duration-500 ${
+                    <div className={`relative z-10 ml-0 md:ml-0 rounded-xl border backdrop-blur-md transition-all duration-500 ${
                       getColorClasses(step.color, isActive)
                     } ${isActive ? 'shadow-2xl' : 'shadow-lg'}`}>
-                      <div className="p-4 md:p-5">
+                      <div className="absolute inset-0 rounded-xl bg-background/95"></div>
+                      <div className="relative z-10 p-4 md:p-5">
                         <div className="flex items-start gap-3 md:gap-4">
                           {/* Иконка и номер */}
                           <div className="flex-shrink-0">

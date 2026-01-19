@@ -53,21 +53,17 @@ export default function PromoTimer() {
   }, [])
 
   return (
-    <div className="border border-purple-500/30 p-4 sm:p-6 md:p-8 relative overflow-hidden group hover:border-purple-400/50 transition-all duration-500 animate-scale-in hover-purple-glow">
+    <div className="border border-purple-500/30 p-3 sm:p-4 md:p-6 relative overflow-hidden group hover:border-purple-400/50 transition-all duration-500 animate-scale-in hover-purple-glow">
       <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-pink-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       
-      {/* Бейдж с количеством мест в правом верхнем углу */}
-      <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-20">
-        <div className="text-[10px] sm:text-xs text-red-600 font-medium px-2 sm:px-2.5 py-0.5 sm:py-1 bg-red-500/10 border border-red-500/30 rounded-md backdrop-blur-sm">
-          Осталось мест: <span className="font-semibold text-red-600">{spotsLeft}</span>
-        </div>
-      </div>
-
       <div className="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 md:gap-12 relative z-10">
         <div className="text-center md:text-left flex-1 min-w-0">
-          <div className="mb-3 sm:mb-4">
-            <span className="text-[10px] sm:text-xs text-purple-600 font-light uppercase tracking-wide">
+          <div className="mb-3 sm:mb-4 flex flex-col sm:flex-row sm:items-center sm:gap-3">
+            <span className="text-[10px] sm:text-xs text-foreground/80 font-light uppercase tracking-wide">
               Ограниченное предложение
+            </span>
+            <span className="mt-2 sm:mt-0 inline-flex items-center rounded-md border border-red-500/30 bg-red-500/10 px-2 sm:px-2.5 py-0.5 text-[10px] sm:text-xs font-medium text-red-600 backdrop-blur-sm">
+              Осталось мест: <span className="ml-1 font-semibold text-red-600">{spotsLeft}</span>
             </span>
           </div>
           <h3 className="text-xl sm:text-2xl md:text-3xl font-light mb-2 sm:mb-3 tracking-tight leading-tight break-words overflow-wrap-anywhere">
@@ -81,7 +77,7 @@ export default function PromoTimer() {
 
         <div className="flex-shrink-0 w-full md:w-auto">
           <div className="text-center mb-4 sm:mb-6">
-            <p className="text-[10px] sm:text-xs text-muted font-light uppercase tracking-wide mb-4 sm:mb-6">
+            <p className="text-[10px] sm:text-xs text-foreground/70 font-light uppercase tracking-wide mb-4 sm:mb-6">
               До конца акции осталось:
             </p>
           </div>

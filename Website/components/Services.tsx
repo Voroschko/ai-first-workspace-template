@@ -29,16 +29,16 @@ export default function Services() {
       icon: 'robot',
     },
     {
-      title: 'Mock Interviews',
-      description: 'Практика интервью с экспертами для уверенного прохождения собеседований',
+      title: 'Assist Serves',
+      description: 'Масштаб, недоступный человеку. На тарифах ТА+ и VIP подачи и аутрич рекрутерам делают ассистенты',
       color: 'violet',
-      icon: 'microphone',
+      icon: 'rocket',
     },
     {
-      title: 'Offer Negotiation',
-      description: 'Научитесь вести переговоры как профессионал и увеличить предложение',
+      title: 'Interview Preparation',
+      description: 'Системная подготовка к интервью. Обучение общению с рекрутерами и уверенному прохождению всех этапов',
       color: 'purple',
-      icon: 'money',
+      icon: 'microphone',
     },
   ]
 

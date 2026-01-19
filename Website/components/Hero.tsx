@@ -24,13 +24,13 @@ export default function Hero() {
           <div className="border-t border-b border-purple-500/50 py-2 md:py-3 mb-2 md:mb-3 max-w-xl mx-auto animate-scale-in animation-delay-400 hover:border-purple-400 transition-all">
             <div className="space-y-1.5 md:space-y-2 text-left">
               <p className="text-sm md:text-base text-muted font-light animate-slide-in-left animation-delay-500">
-                <span className="text-accent font-normal">Около 68%</span> находят работу — за 3 месяца, <span className="text-accent font-normal">94% — к 6-му месяцу</span>
+                <span className="text-accent font-normal">68%</span> находят работу за <span className="text-accent font-normal">3 месяца</span>, <span className="text-accent font-normal">94%</span> — к <span className="text-accent font-normal">6-му месяцу</span>
               </p>
               <p className="text-sm md:text-base text-muted font-light animate-slide-in-left animation-delay-600">
-                <span className="text-accent font-normal">В 5-15 раз больше</span> релевантных откликов от работодателей
+                <span className="text-accent font-normal">5-15x</span> больше релевантных подач — <span className="text-accent font-normal">больше интервью</span>
               </p>
               <p className="text-sm md:text-base text-muted font-light animate-slide-in-left animation-delay-600">
-                <span className="text-accent font-normal">Оффер на ~28.4% выше</span> среднего по рынку
+                Оффер на <span className="text-accent font-normal">~28.4%</span> выше среднего по рынку
               </p>
             </div>
           </div>

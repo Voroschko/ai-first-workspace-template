@@ -370,7 +370,7 @@ export default function ServicesPage() {
             <div className="text-center p-4 md:p-6 rounded-2xl border border-purple-500 bg-purple-500/5 backdrop-blur-sm hover:bg-purple-500/10 transition-all">
               <div className="text-3xl md:text-4xl mb-3 md:mb-4">🎯</div>
               <div className="text-2xl md:text-3xl font-bold text-accent mb-2">5-15x</div>
-              <p className="text-xs md:text-sm text-muted">Больше релевантных откликов от работодателей*</p>
+              <p className="text-xs md:text-sm text-muted">Больше релевантных подач - больше интервью*</p>
             </div>
             <div className="text-center p-4 md:p-6 rounded-2xl border border-purple-500 bg-purple-500/5 backdrop-blur-sm hover:bg-purple-500/10 transition-all">
               <div className="text-3xl md:text-4xl mb-3 md:mb-4">⚡</div>

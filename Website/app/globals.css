@@ -521,6 +521,9 @@ select {
   background-position: right 0.75rem center;
   background-size: 1em;
   padding-right: 2.5rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 /* Предотвращение выхода чисел за границы блоков */
@@ -544,7 +547,8 @@ select {
 }
 
 .animate-scroll-infinite {
-  animation: scroll-infinite 30s linear infinite;
+  animation: scroll-infinite 40s linear infinite;
   display: flex;
   gap: 1.5rem;
+  will-change: transform;
 }

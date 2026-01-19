@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import ScrollReveal from './ScrollReveal'
 import AnimatedCounter from './AnimatedCounter'
 
@@ -184,7 +185,7 @@ export default function Results() {
     },
     {
       number: '5-15x',
-      label: 'Больше релевантных откликов',
+      label: 'Больше релевантных подач - больше интервью',
       color: 'blue',
       isAnimated: false,
     },
@@ -221,16 +222,16 @@ export default function Results() {
   ]
 
   const companies = [
-    'TikTok',
-    'Microsoft',
-    'Meta',
-    'Amazon',
-    'Capital One',
-    'Walt Disney',
-    'Sony',
-    'EPAM',
-    'Google',
-    'OpenAI',
+    { name: 'TikTok', logo: null },
+    { name: 'Microsoft', logo: null },
+    { name: 'Meta', logo: '/images/companies/meta.svg?v=1' },
+    { name: 'Amazon', logo: '/images/companies/amazon.svg?v=1' },
+    { name: 'Capital One', logo: null },
+    { name: 'Walt Disney', logo: '/images/companies/disney.svg?v=1' },
+    { name: 'Sony', logo: '/images/companies/sony.svg?v=1' },
+    { name: 'EPAM', logo: '/images/companies/epam.svg?v=1' },
+    { name: 'Google', logo: '/images/companies/google.svg?v=1' },
+    { name: 'OpenAI', logo: '/images/companies/openai.svg?v=1' },
   ]
 
   const colorClasses = {
@@ -242,7 +243,7 @@ export default function Results() {
   }
 
   return (
-    <section className="py-16 md:py-20 border-t border-border relative section-bg-4">
+    <section className="py-16 md:py-12 border-t border-border relative section-bg-4">
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-purple-500/8 rounded-full blur-3xl animate-float" style={{ transform: 'translate(-50%, -50%)' }}></div>
         <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-blue-500/8 rounded-full blur-3xl animate-float animation-delay-2000"></div>
@@ -288,27 +289,39 @@ export default function Results() {
         <ScrollReveal animation="fade-in" delay={600}>
           <div className="text-center border-t border-b border-border py-12 md:py-16">
             <h3 className="text-lg md:text-xl font-light mb-8 md:mb-10 lg:mb-12 uppercase tracking-wide">
-              <span className="text-foreground">Компании, которые </span>
-              <span className="gradient-text">интервьюируют наших кандидатов</span>
+              <span className="text-foreground">Компании, в которые наши клиенты </span>
+              <span className="gradient-text">успешно трудоустроились</span>
             </h3>
-            <div className="flex flex-wrap justify-center gap-6 md:gap-8 max-w-4xl mx-auto">
-              {companies.map((company, index) => (
-                <div
-                  key={index}
-                  className="text-sm text-muted font-light uppercase tracking-wide hover:text-purple-600 hover:scale-110 transition-all duration-300 cursor-default"
-                >
-                  {company}
-                </div>
-              ))}
+            <div className="relative overflow-hidden w-full">
+              <div className="flex gap-6 md:gap-8 animate-scroll-infinite whitespace-nowrap">
+                {/* Дублируем массив для бесконечной прокрутки */}
+                {[...companies, ...companies, ...companies].map((company, index) => (
+                  <div
+                    key={`company-${index}`}
+                    className={`inline-flex items-center justify-center flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 ${
+                      company.logo ? 'w-32 h-16 md:w-36 md:h-20' : ''
+                    }`}
+                  >
+                    {company.logo ? (
+                      <img
+                        src={company.logo}
+                        alt={company.name}
+                        className="object-contain w-full h-full"
+                        style={{ width: '100%', height: '100%', display: 'block' }}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <span className="text-sm text-muted font-light uppercase tracking-wide hover:text-purple-600 hover:scale-110 transition-all duration-300 cursor-default whitespace-nowrap">
+                        {company.name}
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </ScrollReveal>
 
-        <ScrollReveal animation="fade-in" delay={800}>
-          <p className="text-center text-muted text-xs mt-8 md:mt-12 font-light">
-            *На основе самоотчетов участников. Индивидуальные результаты могут отличаться.
-          </p>
-        </ScrollReveal>
       </div>
     </section>
   )
