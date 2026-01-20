@@ -904,9 +904,12 @@ export default function CasesPage() {
     return () => clearTimeout(timer)
   }, [])
 
-  const filteredCases = selectedCategory === 'Все'
-    ? cases
-    : cases.filter((caseItem) => caseItem.category.includes(selectedCategory))
+  const filteredCases = (() => {
+    if (selectedCategory === 'Все') {
+      return cases
+    }
+    return cases.filter((caseItem) => caseItem.category.includes(selectedCategory))
+  })()
 
   return (
     <>
