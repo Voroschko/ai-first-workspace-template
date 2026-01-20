@@ -75,7 +75,7 @@ export default function BlogPage() {
                   <ScrollReveal key={post.slug} animation="slide-up" delay={index * 100}>
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="group block bg-background/50 rounded-2xl p-6 md:p-8 border border-border/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg backdrop-blur-sm h-full flex flex-col"
+                      className="group block bg-background/80 rounded-2xl p-6 md:p-8 border border-border/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg backdrop-blur-sm h-full flex flex-col"
                     >
                       <div className="mb-4">
                         <span className="inline-block text-xs text-purple-500 font-light uppercase tracking-wide mb-3">
@@ -89,7 +89,7 @@ export default function BlogPage() {
                         </p>
                       </div>
                       <div className="mt-auto pt-4 border-t border-border/30 flex items-center justify-between text-xs text-muted font-light">
-                        <span>{new Date(post.date).toLocaleDateString('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                        <span suppressHydrationWarning>{new Date(post.date).toLocaleDateString('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                         <span>{post.readTime} чтения</span>
                       </div>
                     </Link>

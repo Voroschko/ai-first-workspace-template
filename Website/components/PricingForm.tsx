@@ -51,7 +51,7 @@ export default function PricingForm() {
   }
 
   return (
-    <div className="border border-border p-12 max-w-3xl mx-auto relative bg-background/50 backdrop-blur-sm">
+    <div className="border border-border p-12 max-w-3xl mx-auto relative bg-background/80 backdrop-blur-sm">
       <h3 className="text-3xl font-light text-foreground mb-12 tracking-tight text-center uppercase">
         Выберите тариф
       </h3>

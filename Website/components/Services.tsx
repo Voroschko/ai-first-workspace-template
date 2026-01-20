@@ -70,19 +70,19 @@ export default function Services() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 max-w-6xl mx-auto mb-12 md:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 max-w-6xl mx-auto mb-12 md:mb-16 items-stretch">
           {services.map((service, index) => (
             <ScrollReveal key={index} animation="slide-up" delay={index * 100}>
-              <div className={`border-b border-border pb-6 md:pb-8 transition-all duration-500 ${colorClasses[service.color as keyof typeof colorClasses]} group`}>
-                <div className="flex items-start gap-3 md:gap-4">
-                  <div className="group-hover:scale-110 transition-transform duration-300 text-purple-400">
+              <div className={`h-full border-b border-border pb-6 md:pb-8 transition-all duration-500 ${colorClasses[service.color as keyof typeof colorClasses]} group flex flex-col`}>
+                <div className="flex items-start gap-3 md:gap-4 flex-1">
+                  <div className="group-hover:scale-110 transition-transform duration-300 text-purple-400 flex-shrink-0">
                     <Icon name={service.icon} size={32} className="text-current" />
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1 flex flex-col">
                     <h3 className="text-lg md:text-xl font-light mb-3 md:mb-4 tracking-wide uppercase">
                       {service.title}
                     </h3>
-                    <p className="text-sm text-muted font-light leading-relaxed">{service.description}</p>
+                    <p className="text-sm text-muted font-light leading-relaxed flex-1">{service.description}</p>
                   </div>
                 </div>
               </div>

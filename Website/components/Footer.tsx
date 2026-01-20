@@ -45,25 +45,25 @@ export default function Footer() {
   })
 
   return (
-    <footer id="contact" className="bg-background border-t border-border py-12 md:py-16 relative">
+    <footer id="contact" className="bg-background border-t border-border py-6 md:py-8 relative">
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-purple-500/8 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/8 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-48 h-48 bg-purple-500/8 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-48 h-48 bg-blue-500/8 rounded-full blur-3xl"></div>
       </div>
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 lg:gap-12 mb-8 md:mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-4 md:mb-6">
           <div className="animate-fade-in">
-            <h3 className="text-xl font-light mb-6 uppercase tracking-wide">
+            <h3 className="text-lg font-light mb-3 uppercase tracking-wide">
               <span className="text-foreground">Go </span>
               <span className="gradient-text">Offer</span>
             </h3>
-            <p className="text-sm text-muted font-light">
+            <p className="text-xs text-muted font-light">
               Level Up Your Career: AI-Powered Job Search
             </p>
           </div>
           <div className="animate-fade-in animation-delay-200">
-            <h4 className="text-sm font-light mb-6 text-foreground uppercase tracking-wide">Навигация</h4>
-            <ul className="space-y-4">
+            <h4 className="text-sm font-light mb-3 text-foreground uppercase tracking-wide">Навигация</h4>
+            <ul className="space-y-2">
               <li>
                 <a href="/services" className="text-sm text-muted hover:text-purple-600 transition-colors font-light uppercase tracking-wide">
                   Услуги
@@ -87,8 +87,8 @@ export default function Footer() {
             </ul>
           </div>
           <div className="animate-fade-in animation-delay-300">
-            <h4 className="text-sm font-light mb-6 text-foreground uppercase tracking-wide">Контакты</h4>
-            <ul className="space-y-3.5">
+            <h4 className="text-sm font-light mb-3 text-foreground uppercase tracking-wide">Контакты</h4>
+            <ul className="space-y-2">
               {socialLinks.map((link, index) => {
                 const IconComponent = link.icon
                 return (
@@ -117,10 +117,10 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="border-t border-border pt-6 animate-fade-in animation-delay-400">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-border pt-4 animate-fade-in animation-delay-400">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-2">
             <p className="text-xs text-muted font-light">&copy; {new Date().getFullYear()} Go Offer. Все права защищены.</p>
-            <div className="flex flex-wrap gap-4 justify-center text-xs">
+            <div className="flex flex-wrap gap-3 justify-center text-xs">
               <a href="/privacy" className="text-muted hover:text-purple-600 transition-colors font-light uppercase tracking-wide">
                 Privacy Policy
               </a>

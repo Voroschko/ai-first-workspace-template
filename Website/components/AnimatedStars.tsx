@@ -153,14 +153,15 @@ export default function AnimatedStars() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0"
+      className="fixed inset-0 pointer-events-none"
       style={{ 
         opacity: 1.0,
         position: 'fixed',
         top: 0,
         left: 0,
         width: '100vw',
-        height: '100vh'
+        height: '100vh',
+        zIndex: -1
       }}
     />
   )

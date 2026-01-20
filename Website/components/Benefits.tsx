@@ -43,17 +43,17 @@ export default function Benefits() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 max-w-5xl mx-auto items-stretch">
           {benefits.map((benefit, index) => (
             <ScrollReveal key={index} animation="slide-in-left" delay={index * 150}>
-              <div className="border-b border-border pb-8 md:pb-10 lg:pb-12 group hover:border-gradient transition-all duration-500 hover:scale-[1.02]">
+              <div className="h-full border-b border-border pb-8 md:pb-10 lg:pb-12 group hover:border-gradient transition-all duration-500 hover:scale-[1.02] flex flex-col">
                 <h3 className="text-xl md:text-2xl font-light mb-4 md:mb-5 lg:mb-6 tracking-wide uppercase relative">
                   <span className={`bg-gradient-to-r ${benefit.gradient} bg-clip-text text-transparent`}>
                     {benefit.title}
                   </span>
                   <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r ${benefit.gradient} w-0 group-hover:w-full transition-all duration-500`}></span>
                 </h3>
-                <p className="text-sm md:text-base text-muted font-light leading-relaxed">{benefit.description}</p>
+                <p className="text-sm md:text-base text-muted font-light leading-relaxed flex-1">{benefit.description}</p>
               </div>
             </ScrollReveal>
           ))}

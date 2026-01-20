@@ -239,7 +239,7 @@ export default function BenefitCalculator() {
           <div className="space-y-3">
             {/* Основные метрики */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
-              <div className="bg-background/30 rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 border border-purple-500/20 overflow-hidden min-w-0">
+              <div className="bg-background/70 rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 border border-purple-500/20 overflow-hidden min-w-0">
                 <div className="text-[10px] sm:text-xs text-muted font-light mb-2 sm:mb-3 uppercase tracking-wide break-words">
                   Стоимость тарифа
                 </div>
@@ -248,7 +248,7 @@ export default function BenefitCalculator() {
                 </div>
               </div>
 
-              <div className="bg-background/30 rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 border border-blue-500/20 overflow-hidden min-w-0">
+              <div className="bg-background/70 rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 border border-blue-500/20 overflow-hidden min-w-0">
                 <div className="text-[10px] sm:text-xs text-muted font-light mb-2 sm:mb-3 uppercase tracking-wide break-words">
                   Оффер с Go Offer
                 </div>
@@ -260,7 +260,7 @@ export default function BenefitCalculator() {
                 </div>
               </div>
 
-              <div className="bg-background/30 rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 border border-green-500/20 sm:col-span-2 md:col-span-1 overflow-hidden min-w-0">
+              <div className="bg-background/70 rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 border border-green-500/20 sm:col-span-2 md:col-span-1 overflow-hidden min-w-0">
                 <div className="text-[10px] sm:text-xs text-muted font-light mb-2 sm:mb-3 uppercase tracking-wide break-words">
                   Доп. доход/год
                 </div>
@@ -305,7 +305,7 @@ export default function BenefitCalculator() {
                   )}
 
                   {/* Блок 2: Потерянный доход (справа) */}
-                  <div className="bg-background/30 rounded-lg sm:rounded-xl p-2.5 sm:p-3 border border-red-500/30 h-full flex flex-col">
+                  <div className="bg-background/70 rounded-lg sm:rounded-xl p-2.5 sm:p-3 border border-red-500/30 h-full flex flex-col">
                     <div className="text-[10px] sm:text-xs text-muted font-light mb-1 sm:mb-1.5">
                       💸 Уже потеряно за время поиска работы
                     </div>

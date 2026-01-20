@@ -17,6 +17,8 @@ export default function Breadcrumbs() {
       { label: 'Главная', href: '/' }
     ]
     
+    if (!pathname) return items
+    
     if (pathname === '/services') {
       items.push({ label: 'Услуги' })
     } else if (pathname === '/cases') {
@@ -41,7 +43,7 @@ export default function Breadcrumbs() {
   const breadcrumbs = getBreadcrumbs()
   
   // Не показываем breadcrumbs на главной странице
-  if (pathname === '/' || breadcrumbs.length <= 1) {
+  if (!pathname || pathname === '/' || breadcrumbs.length <= 1) {
     return null
   }
   

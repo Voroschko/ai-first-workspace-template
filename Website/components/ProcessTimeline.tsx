@@ -137,23 +137,23 @@ export default function ProcessTimeline() {
     const colors: Record<string, { active: string; inactive: string }> = {
       purple: {
         active: 'bg-purple-500/20 border-purple-500/50',
-        inactive: 'bg-background/30 border-border/30'
+        inactive: 'bg-background/70 border-border/30'
       },
       blue: {
         active: 'bg-blue-500/20 border-blue-500/50',
-        inactive: 'bg-background/30 border-border/30'
+        inactive: 'bg-background/70 border-border/30'
       },
       green: {
         active: 'bg-green-500/20 border-green-500/50',
-        inactive: 'bg-background/30 border-border/30'
+        inactive: 'bg-background/70 border-border/30'
       },
       pink: {
         active: 'bg-pink-500/20 border-pink-500/50',
-        inactive: 'bg-background/30 border-border/30'
+        inactive: 'bg-background/70 border-border/30'
       },
       yellow: {
         active: 'bg-yellow-500/20 border-yellow-500/50',
-        inactive: 'bg-background/30 border-border/30'
+        inactive: 'bg-background/70 border-border/30'
       }
     }
     const colorConfig = colors[color] || colors.purple
@@ -278,8 +278,8 @@ export default function ProcessTimeline() {
                           <div className="flex-shrink-0">
                             <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 ${
                               isActive 
-                                ? 'bg-background/50 scale-110' 
-                                : 'bg-background/30'
+                                ? 'bg-background/80 scale-110' 
+                                : 'bg-background/70'
                             }`}>
                               <Icon name={step.icon} size={28} className={getIconColor(step.color)} />
                             </div>

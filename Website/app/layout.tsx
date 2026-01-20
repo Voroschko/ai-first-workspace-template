@@ -84,7 +84,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -100,7 +100,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://go-offer.us" />
         <link rel="preconnect" href="https://go-offer.us" crossOrigin="anonymous" />
       </head>
-      <body className="text-foreground relative">{children}</body>
+      <body className="text-foreground relative" suppressHydrationWarning>{children}</body>
     </html>
   )
 }

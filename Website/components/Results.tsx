@@ -221,11 +221,11 @@ export default function Results() {
   ]
 
   const companies = [
-    { name: 'TikTok', logo: null },
-    { name: 'Microsoft', logo: null },
+    { name: 'TikTok', logo: '/images/companies/tiktok.svg?v=2' },
+    { name: 'Microsoft', logo: '/images/companies/microsoft.svg?v=2' },
     { name: 'Meta', logo: '/images/companies/meta.svg?v=1' },
     { name: 'Amazon', logo: '/images/companies/amazon.svg?v=1' },
-    { name: 'Capital One', logo: null },
+    { name: 'Capital One', logo: '/images/companies/capital-one.svg?v=2' },
     { name: 'Walt Disney', logo: '/images/companies/disney.svg?v=1' },
     { name: 'Sony', logo: '/images/companies/sony.svg?v=1' },
     { name: 'EPAM', logo: '/images/companies/epam.svg?v=1' },

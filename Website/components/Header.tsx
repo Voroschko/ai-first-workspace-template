@@ -1,21 +1,15 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
-  
-  // Предотвращаем ошибки гидратации, дожидаясь монтирования на клиенте
-  useEffect(() => {
-    setMounted(true)
-  }, [])
   
   // Определяем активную страницу
   const isActive = (path: string) => {
-    if (!mounted || !pathname) return false
+    if (!pathname) return false
     if (path === '/') {
       return pathname === '/'
     }
@@ -24,7 +18,7 @@ export default function Header() {
   
   // Для якорных ссылок проверяем, находимся ли мы на главной странице
   const isAnchorActive = (anchor: string) => {
-    if (!mounted || !pathname) return false
+    if (!pathname) return false
     if (pathname !== '/') return false
     // Можно добавить логику для определения видимой секции при скролле
     return false
@@ -47,72 +41,72 @@ export default function Header() {
             <a 
               href="/services" 
               className={`text-xs font-light transition-all duration-300 uppercase tracking-wide relative group py-2 ${
-                mounted && isActive('/services')
+                isActive('/services')
                   ? 'text-accent'
                   : 'text-muted hover:text-accent'
               }`}
             >
               Услуги
               <span className={`absolute bottom-0 left-0 h-0.5 bg-accent transition-all duration-300 ${
-                mounted && isActive('/services') ? 'w-full' : 'w-0 group-hover:w-full'
+                isActive('/services') ? 'w-full' : 'w-0 group-hover:w-full'
               }`}></span>
             </a>
             <a 
               href="#pricing" 
               className={`text-xs font-light transition-all duration-300 uppercase tracking-wide relative group py-2 ${
-                mounted && isAnchorActive('#pricing')
+                isAnchorActive('#pricing')
                   ? 'text-blue-600'
                   : 'text-muted hover:text-blue-600'
               }`}
             >
               Тарифы
               <span className={`absolute bottom-0 left-0 h-0.5 bg-blue-600 transition-all duration-300 ${
-                mounted && isAnchorActive('#pricing') ? 'w-full' : 'w-0 group-hover:w-full'
+                isAnchorActive('#pricing') ? 'w-full' : 'w-0 group-hover:w-full'
               }`}></span>
             </a>
             <a 
               href="#about" 
               className={`text-xs font-light transition-all duration-300 uppercase tracking-wide relative group py-2 ${
-                mounted && isAnchorActive('#about')
+                isAnchorActive('#about')
                   ? 'text-pink-600'
                   : 'text-muted hover:text-pink-600'
               }`}
             >
               О нас
               <span className={`absolute bottom-0 left-0 h-0.5 bg-pink-600 transition-all duration-300 ${
-                mounted && isAnchorActive('#about') ? 'w-full' : 'w-0 group-hover:w-full'
+                isAnchorActive('#about') ? 'w-full' : 'w-0 group-hover:w-full'
               }`}></span>
             </a>
             <a 
               href="/cases" 
               className={`text-xs font-light transition-all duration-300 uppercase tracking-wide relative group py-2 ${
-                mounted && isActive('/cases')
+                isActive('/cases')
                   ? 'text-cyan-600'
                   : 'text-muted hover:text-cyan-600'
               }`}
             >
               Кейсы
               <span className={`absolute bottom-0 left-0 h-0.5 bg-cyan-600 transition-all duration-300 ${
-                mounted && isActive('/cases') ? 'w-full' : 'w-0 group-hover:w-full'
+                isActive('/cases') ? 'w-full' : 'w-0 group-hover:w-full'
               }`}></span>
             </a>
             <a 
               href="/blog" 
               className={`text-xs font-light transition-all duration-300 uppercase tracking-wide relative group py-2 ${
-                mounted && isActive('/blog')
+                isActive('/blog')
                   ? 'text-violet-600'
                   : 'text-muted hover:text-violet-600'
               }`}
             >
               Блог
               <span className={`absolute bottom-0 left-0 h-0.5 bg-violet-600 transition-all duration-300 ${
-                mounted && isActive('/blog') ? 'w-full' : 'w-0 group-hover:w-full'
+                isActive('/blog') ? 'w-full' : 'w-0 group-hover:w-full'
               }`}></span>
             </a>
             <a 
               href="/courses" 
               className={`text-xs font-light transition-all duration-300 uppercase tracking-wide border px-3 py-1.5 rounded-md backdrop-blur-sm ${
-                mounted && isActive('/courses')
+                isActive('/courses')
                   ? 'text-foreground border-purple-500/50 bg-purple-500/5'
                   : 'text-foreground border-border/50 hover:border-purple-500/50 hover:bg-purple-500/5 hover:text-purple-500'
               }`}
@@ -156,12 +150,12 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-border animate-fade-in">
+          <nav className="md:hidden py-4 border-t border-border animate-fade-in" suppressHydrationWarning>
             <div className="flex flex-col gap-3">
               <a
                 href="/services"
                 className={`text-xs font-light transition-all duration-300 uppercase tracking-wide py-2 px-2 rounded-md ${
-                  mounted && isActive('/services')
+                  isActive('/services')
                     ? 'text-accent bg-accent/5'
                     : 'text-muted hover:text-accent hover:bg-accent/5'
                 }`}
@@ -172,7 +166,7 @@ export default function Header() {
               <a
                 href="#pricing"
                 className={`text-xs font-light transition-all duration-300 uppercase tracking-wide py-2 px-2 rounded-md ${
-                  mounted && isAnchorActive('#pricing')
+                  isAnchorActive('#pricing')
                     ? 'text-blue-600 bg-blue-600/5'
                     : 'text-muted hover:text-blue-600 hover:bg-blue-600/5'
                 }`}
@@ -183,7 +177,7 @@ export default function Header() {
               <a
                 href="#about"
                 className={`text-xs font-light transition-all duration-300 uppercase tracking-wide py-2 px-2 rounded-md ${
-                  mounted && isAnchorActive('#about')
+                  isAnchorActive('#about')
                     ? 'text-pink-600 bg-pink-600/5'
                     : 'text-muted hover:text-pink-600 hover:bg-pink-600/5'
                 }`}
@@ -194,7 +188,7 @@ export default function Header() {
               <a
                 href="/cases"
                 className={`text-xs font-light transition-all duration-300 uppercase tracking-wide py-2 px-2 rounded-md ${
-                  mounted && isActive('/cases')
+                  isActive('/cases')
                     ? 'text-cyan-600 bg-cyan-600/5'
                     : 'text-muted hover:text-cyan-600 hover:bg-cyan-600/5'
                 }`}
@@ -205,7 +199,7 @@ export default function Header() {
               <a
                 href="/blog"
                 className={`text-xs font-light transition-all duration-300 uppercase tracking-wide py-2 px-2 rounded-md ${
-                  mounted && isActive('/blog')
+                  isActive('/blog')
                     ? 'text-violet-600 bg-violet-600/5'
                     : 'text-muted hover:text-violet-600 hover:bg-violet-600/5'
                 }`}
@@ -216,7 +210,7 @@ export default function Header() {
               <a
                 href="/courses"
                 className={`text-xs font-light transition-all duration-300 uppercase tracking-wide border px-3 py-2 rounded-md backdrop-blur-sm text-center ${
-                  mounted && isActive('/courses')
+                  isActive('/courses')
                     ? 'text-foreground border-purple-500/50 bg-purple-500/5'
                     : 'text-foreground border-border/50 hover:border-purple-500/50 hover:bg-purple-500/5 hover:text-purple-500'
                 }`}

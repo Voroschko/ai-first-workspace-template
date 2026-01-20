@@ -207,15 +207,15 @@ export default function ProcessMap() {
           {/* Статистика */}
           <ScrollReveal animation="fade-in" delay={600}>
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <div className="text-center p-6 bg-background/30 rounded-xl border border-border/30 backdrop-blur-sm">
+              <div className="text-center p-6 bg-background/70 rounded-xl border border-border/30 backdrop-blur-sm">
                 <div className="text-3xl font-light text-accent mb-2">68%</div>
                 <div className="text-sm text-muted font-light">Получают оффер за 3 месяца</div>
               </div>
-              <div className="text-center p-6 bg-background/30 rounded-xl border border-border/30 backdrop-blur-sm">
+              <div className="text-center p-6 bg-background/70 rounded-xl border border-border/30 backdrop-blur-sm">
                 <div className="text-3xl font-light text-accent mb-2">+28.4%</div>
                 <div className="text-sm text-muted font-light">Выше среднего по рынку</div>
               </div>
-              <div className="text-center p-6 bg-background/30 rounded-xl border border-border/30 backdrop-blur-sm">
+              <div className="text-center p-6 bg-background/70 rounded-xl border border-border/30 backdrop-blur-sm">
                 <div className="text-3xl font-light text-accent mb-2">20+</div>
                 <div className="text-sm text-muted font-light">Часов экономии в неделю</div>
               </div>
