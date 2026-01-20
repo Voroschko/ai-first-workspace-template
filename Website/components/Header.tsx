@@ -5,18 +5,26 @@ import { usePathname } from 'next/navigation'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
+  
+  // Предотвращаем ошибки гидратации, дожидаясь монтирования на клиенте
+  useEffect(() => {
+    setMounted(true)
+  }, [])
   
   // Определяем активную страницу
   const isActive = (path: string) => {
+    if (!mounted || !pathname) return false
     if (path === '/') {
       return pathname === '/'
     }
-    return pathname?.startsWith(path)
+    return pathname.startsWith(path)
   }
   
   // Для якорных ссылок проверяем, находимся ли мы на главной странице
   const isAnchorActive = (anchor: string) => {
+    if (!mounted || !pathname) return false
     if (pathname !== '/') return false
     // Можно добавить логику для определения видимой секции при скролле
     return false
@@ -39,59 +47,72 @@ export default function Header() {
             <a 
               href="/services" 
               className={`text-xs font-light transition-all duration-300 uppercase tracking-wide relative group py-2 ${
-                isActive('/services')
+                mounted && isActive('/services')
                   ? 'text-accent'
                   : 'text-muted hover:text-accent'
               }`}
             >
               Услуги
               <span className={`absolute bottom-0 left-0 h-0.5 bg-accent transition-all duration-300 ${
-                isActive('/services') ? 'w-full' : 'w-0 group-hover:w-full'
+                mounted && isActive('/services') ? 'w-full' : 'w-0 group-hover:w-full'
               }`}></span>
             </a>
             <a 
               href="#pricing" 
               className={`text-xs font-light transition-all duration-300 uppercase tracking-wide relative group py-2 ${
-                isAnchorActive('#pricing')
+                mounted && isAnchorActive('#pricing')
                   ? 'text-blue-600'
                   : 'text-muted hover:text-blue-600'
               }`}
             >
               Тарифы
               <span className={`absolute bottom-0 left-0 h-0.5 bg-blue-600 transition-all duration-300 ${
-                isAnchorActive('#pricing') ? 'w-full' : 'w-0 group-hover:w-full'
+                mounted && isAnchorActive('#pricing') ? 'w-full' : 'w-0 group-hover:w-full'
               }`}></span>
             </a>
             <a 
               href="#about" 
               className={`text-xs font-light transition-all duration-300 uppercase tracking-wide relative group py-2 ${
-                isAnchorActive('#about')
+                mounted && isAnchorActive('#about')
                   ? 'text-pink-600'
                   : 'text-muted hover:text-pink-600'
               }`}
             >
               О нас
               <span className={`absolute bottom-0 left-0 h-0.5 bg-pink-600 transition-all duration-300 ${
-                isAnchorActive('#about') ? 'w-full' : 'w-0 group-hover:w-full'
+                mounted && isAnchorActive('#about') ? 'w-full' : 'w-0 group-hover:w-full'
               }`}></span>
             </a>
             <a 
               href="/cases" 
               className={`text-xs font-light transition-all duration-300 uppercase tracking-wide relative group py-2 ${
-                isActive('/cases')
+                mounted && isActive('/cases')
                   ? 'text-cyan-600'
                   : 'text-muted hover:text-cyan-600'
               }`}
             >
               Кейсы
               <span className={`absolute bottom-0 left-0 h-0.5 bg-cyan-600 transition-all duration-300 ${
-                isActive('/cases') ? 'w-full' : 'w-0 group-hover:w-full'
+                mounted && isActive('/cases') ? 'w-full' : 'w-0 group-hover:w-full'
+              }`}></span>
+            </a>
+            <a 
+              href="/blog" 
+              className={`text-xs font-light transition-all duration-300 uppercase tracking-wide relative group py-2 ${
+                mounted && isActive('/blog')
+                  ? 'text-violet-600'
+                  : 'text-muted hover:text-violet-600'
+              }`}
+            >
+              Блог
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-violet-600 transition-all duration-300 ${
+                mounted && isActive('/blog') ? 'w-full' : 'w-0 group-hover:w-full'
               }`}></span>
             </a>
             <a 
               href="/courses" 
               className={`text-xs font-light transition-all duration-300 uppercase tracking-wide border px-3 py-1.5 rounded-md backdrop-blur-sm ${
-                isActive('/courses')
+                mounted && isActive('/courses')
                   ? 'text-foreground border-purple-500/50 bg-purple-500/5'
                   : 'text-foreground border-border/50 hover:border-purple-500/50 hover:bg-purple-500/5 hover:text-purple-500'
               }`}
@@ -140,7 +161,7 @@ export default function Header() {
               <a
                 href="/services"
                 className={`text-xs font-light transition-all duration-300 uppercase tracking-wide py-2 px-2 rounded-md ${
-                  isActive('/services')
+                  mounted && isActive('/services')
                     ? 'text-accent bg-accent/5'
                     : 'text-muted hover:text-accent hover:bg-accent/5'
                 }`}
@@ -151,7 +172,7 @@ export default function Header() {
               <a
                 href="#pricing"
                 className={`text-xs font-light transition-all duration-300 uppercase tracking-wide py-2 px-2 rounded-md ${
-                  isAnchorActive('#pricing')
+                  mounted && isAnchorActive('#pricing')
                     ? 'text-blue-600 bg-blue-600/5'
                     : 'text-muted hover:text-blue-600 hover:bg-blue-600/5'
                 }`}
@@ -162,7 +183,7 @@ export default function Header() {
               <a
                 href="#about"
                 className={`text-xs font-light transition-all duration-300 uppercase tracking-wide py-2 px-2 rounded-md ${
-                  isAnchorActive('#about')
+                  mounted && isAnchorActive('#about')
                     ? 'text-pink-600 bg-pink-600/5'
                     : 'text-muted hover:text-pink-600 hover:bg-pink-600/5'
                 }`}
@@ -173,7 +194,7 @@ export default function Header() {
               <a
                 href="/cases"
                 className={`text-xs font-light transition-all duration-300 uppercase tracking-wide py-2 px-2 rounded-md ${
-                  isActive('/cases')
+                  mounted && isActive('/cases')
                     ? 'text-cyan-600 bg-cyan-600/5'
                     : 'text-muted hover:text-cyan-600 hover:bg-cyan-600/5'
                 }`}
@@ -182,9 +203,20 @@ export default function Header() {
                 Кейсы
               </a>
               <a
+                href="/blog"
+                className={`text-xs font-light transition-all duration-300 uppercase tracking-wide py-2 px-2 rounded-md ${
+                  mounted && isActive('/blog')
+                    ? 'text-violet-600 bg-violet-600/5'
+                    : 'text-muted hover:text-violet-600 hover:bg-violet-600/5'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Блог
+              </a>
+              <a
                 href="/courses"
                 className={`text-xs font-light transition-all duration-300 uppercase tracking-wide border px-3 py-2 rounded-md backdrop-blur-sm text-center ${
-                  isActive('/courses')
+                  mounted && isActive('/courses')
                     ? 'text-foreground border-purple-500/50 bg-purple-500/5'
                     : 'text-foreground border-border/50 hover:border-purple-500/50 hover:bg-purple-500/5 hover:text-purple-500'
                 }`}

@@ -367,12 +367,15 @@ const cases: Case[] = [
     program: 'Take All Plus',
     offer: 'Waiting',
     role: 'Credit risk manager',
-    category: ['Analysts']
+    category: ['Analysts'],
+    startingPoint: 'Looking for a role in credit risk management.',
+    breakthrough: 'Successfully landed a position as Credit risk manager.'
   },
   {
     id: 'eugene-startup',
     name: 'Eugene',
-    location: '9 months',
+    location: 'San Francisco, CA',
+    duration: '9 months',
     program: 'Take All Plus',
     offer: 'StartHub',
     role: 'Software Engineer',
@@ -445,7 +448,8 @@ const cases: Case[] = [
   {
     id: 'alexander',
     name: 'Alexander',
-    location: '6 months',
+    location: 'New York, NY',
+    duration: '6 months',
     program: 'Take All',
     offer: 'Cloud',
     role: 'Customer Solutions Engineer',
@@ -475,12 +479,15 @@ const cases: Case[] = [
     offer: 'SeeVee',
     role: 'Frontend Developer',
     category: ['Developers & Engineers'],
+    startingPoint: 'Looking for a frontend developer role in Tampa.',
+    breakthrough: 'Successfully landed a Frontend Developer position at SeeVee.',
     interviewLink: 'https://www.youtube.com/watch?v=example'
   },
   {
     id: 'slava',
     name: 'Slava',
     location: 'USA',
+    duration: '3 months',
     program: 'Take All',
     offer: 'QA Engineer',
     role: 'QA Engineer',
@@ -576,6 +583,7 @@ const cases: Case[] = [
     role: 'UX/UI Designer',
     category: ['Sales, Marketing & Design'],
     startingPoint: 'Couldn\'t find a design job for 2 years and was working a survival job.',
+    breakthrough: 'Used the Go Offer Hub platform on the Take All Plus plan. Sent 1,213 applications, had 18 screenings, passed 7 first and 4 second rounds, attended 3 in-person interviews. Successfully landed a UX/UI Designer role at Department of Education New York.',
     highlights: 'Used the Go Offer Hub platform on the Take All Plus plan. Sent 1,213 applications, had 18 screenings, passed 7 first and 4 second rounds, attended 3 in-person interviews',
     interviewLink: 'https://www.youtube.com/watch?v=example'
   },
@@ -740,6 +748,8 @@ const cases: Case[] = [
     offer: 'Intuit',
     role: 'Financial Analyst',
     category: ['Analysts'],
+    startingPoint: 'Looking for a financial analyst role in Philadelphia.',
+    breakthrough: 'Successfully landed a Financial Analyst position at Intuit.',
     interviewLink: 'https://www.youtube.com/watch?v=example'
   },
   {
@@ -866,6 +876,8 @@ const cases: Case[] = [
     offer: 'Global Alzheimer Platform Foundation',
     role: 'Clinical Research Specialist',
     category: ['Others'],
+    startingPoint: 'Looking for a role in clinical research after relocating to the U.S.',
+    breakthrough: 'Successfully landed a Clinical Research Specialist position at Global Alzheimer Platform Foundation.',
     interviewLink: 'https://www.youtube.com/watch?v=example'
   }
 ]
@@ -892,9 +904,10 @@ export default function CasesPage() {
     return () => clearTimeout(timer)
   }, [])
 
-  const filteredCases = selectedCategory === 'Все'
-    ? cases
-    : cases.filter(caseItem => caseItem.category.includes(selectedCategory))
+  const filteredCases =
+    selectedCategory === 'Все'
+      ? cases
+      : cases.filter((caseItem) => caseItem.category.includes(selectedCategory))
 
   return (
     <>
@@ -1063,10 +1076,9 @@ export default function CasesPage() {
               ))}
               </div>
             )}
-          </div>
 
-            {/* CTA Section */}
-            {filteredCases.length === 0 && (
+            {/* CTA Section для пустых результатов */}
+            {filteredCases.length === 0 && !isLoading && (
               <div className="text-center py-16">
                 <p className="text-muted font-light mb-6">
                   Нет кейсов в выбранной категории

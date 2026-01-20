@@ -194,9 +194,9 @@ export default function Process() {
 
   return (
     <section id="process" className="py-16 md:py-20 border-t border-border relative overflow-hidden section-bg-3">
-      <div className="absolute inset-0 opacity-15">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-600/8 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-500/8 rounded-full blur-3xl animate-float animation-delay-2000"></div>
+      <div className="absolute inset-0 opacity-15" suppressHydrationWarning>
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl animate-float" suppressHydrationWarning></div>
+        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float animation-delay-2000" suppressHydrationWarning></div>
       </div>
 
       <div className="container mx-auto px-6 lg:px-8 relative z-10">

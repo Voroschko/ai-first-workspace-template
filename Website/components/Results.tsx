@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Image from 'next/image'
 import ScrollReveal from './ScrollReveal'
 import AnimatedCounter from './AnimatedCounter'
 
