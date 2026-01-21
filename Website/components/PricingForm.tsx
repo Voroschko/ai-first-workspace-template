@@ -16,6 +16,7 @@ export default function PricingForm() {
     phone: '',
     message: '',
     consent: false,
+    smsConsent: false,
   })
 
   const planGroups: PlanGroup[] = [
@@ -183,7 +184,7 @@ export default function PricingForm() {
             </div>
 
             {/* Чекбокс согласия */}
-            <div className="pt-2">
+            <div className="pt-2 space-y-4">
               <label className="flex items-start gap-3 cursor-pointer group">
                 <div className="relative flex-shrink-0 mt-0.5">
                   <input
@@ -213,6 +214,41 @@ export default function PricingForm() {
                 </div>
                 <span className="text-xs md:text-sm text-muted font-light leading-relaxed flex-1 group-hover:text-foreground/80 transition-colors">
                   Я даю согласие на обработку персональных данных и получение личных сообщений от Go Offer, включая информацию о тарифах, услугах и специальных предложениях
+                </span>
+              </label>
+
+              {/* SMS согласие (опционально) */}
+              <label className="flex items-start gap-3 cursor-pointer group">
+                <div className="relative flex-shrink-0 mt-0.5">
+                  <input
+                    type="checkbox"
+                    id="smsConsent"
+                    name="smsConsent"
+                    checked={formData.smsConsent}
+                    onChange={handleInputChange}
+                    className="sr-only peer"
+                  />
+                  <div className="w-5 h-5 border-2 border-border rounded-sm bg-background transition-all duration-300 peer-checked:bg-purple-500 peer-checked:border-purple-500 peer-focus:ring-2 peer-focus:ring-purple-500/20 group-hover:border-purple-400/50 flex items-center justify-center">
+                    {formData.smsConsent && (
+                      <svg
+                        className="w-3.5 h-3.5 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    )}
+                  </div>
+                </div>
+                <span className="text-xs md:text-sm text-muted font-light leading-relaxed flex-1 group-hover:text-foreground/80 transition-colors">
+                  <span className="block mb-1">I agree to receive SMS notifications from Go Offer (optional)</span>
+                  <span className="block text-[10px] md:text-xs text-muted/70">
+                    We use SMS only for reminders and service-related updates. You can use the service without SMS. Reply STOP to unsubscribe.
+                  </span>
                 </span>
               </label>
             </div>
